@@ -1,0 +1,104 @@
+{
+  "uid" : "89af03079b7d2b70",
+  "name" : "test_create_vdc",
+  "fullName" : "testcase.test_10_craete_vdc.TestCreateVDC#test_create_vdc",
+  "historyId" : "923cb143f731349d5e04c092a5921a20",
+  "time" : {
+    "start" : 1572686785387,
+    "stop" : 1572686793243,
+    "duration" : 7856
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert 'wuz_vdc_uiauto_001' in 'vdc01\\n河南分公司\\n有效\\n2019-10-15 01:24:06\\n可用区 更多'",
+  "statusTrace" : "self = <test_10_craete_vdc.TestCreateVDC object at 0x009C70F0>\n\n    @pytest.mark.flaky(reruns=3)\n    def test_create_vdc(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n        login.login(datas[\"username\"], datas[\"password\"])\n        vdc_a.ceate_vdc(p_data[\"vdcname\"])\n        vdc_pg.open_vdc_page()\n        vdc_pg.search_vdc(p_data[\"vdcname\"])\n        #校验能查询到\n        text = self.dr.get_text(\"xpath->//div[@class='box-body']/table-component/div/table/tbody\")\n>       assert p_data[\"vdcname\"] in text\nE       AssertionError: assert 'wuz_vdc_uiauto_001' in 'vdc01\\n河南分公司\\n有效\\n2019-10-15 01:24:06\\n可用区 更多'\n\ntestcase\\test_10_craete_vdc.py:33: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_Class__pytest_setup_class",
+    "time" : {
+      "start" : 1572686775830,
+      "stop" : 1572686785387,
+      "duration" : 9557
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert 'wuz_vdc_uiauto_001' in 'vdc01\\n河南分公司\\n有效\\n2019-10-15 01:24:06\\n可用区 更多'",
+    "statusTrace" : "self = <test_10_craete_vdc.TestCreateVDC object at 0x009C70F0>\n\n    @pytest.mark.flaky(reruns=3)\n    def test_create_vdc(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n        login.login(datas[\"username\"], datas[\"password\"])\n        vdc_a.ceate_vdc(p_data[\"vdcname\"])\n        vdc_pg.open_vdc_page()\n        vdc_pg.search_vdc(p_data[\"vdcname\"])\n        #校验能查询到\n        text = self.dr.get_text(\"xpath->//div[@class='box-body']/table-component/div/table/tbody\")\n>       assert p_data[\"vdcname\"] in text\nE       AssertionError: assert 'wuz_vdc_uiauto_001' in 'vdc01\\n河南分公司\\n有效\\n2019-10-15 01:24:06\\n可用区 更多'\n\ntestcase\\test_10_craete_vdc.py:33: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "bfc1502b746c0e23",
+      "name" : "log",
+      "source" : "bfc1502b746c0e23.txt",
+      "type" : "text/plain",
+      "size" : 22659
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 1,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "_Class__pytest_setup_class::0",
+    "time" : {
+      "start" : 1572686793249,
+      "stop" : 1572686795723,
+      "duration" : 2474
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "testcase"
+  }, {
+    "name" : "suite",
+    "value" : "test_10_craete_vdc"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCreateVDC"
+  }, {
+    "name" : "host",
+    "value" : "wuzs"
+  }, {
+    "name" : "thread",
+    "value" : "18804-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testcase.test_10_craete_vdc"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "89af03079b7d2b70.json",
+  "parameterValues" : [ ]
+}

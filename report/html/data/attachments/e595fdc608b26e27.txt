@@ -1,0 +1,18 @@
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:388 POST http://127.0.0.1:13425/session/dc818719-a2e8-4466-9211-0dabf334aaa5/url {"url": "http:\\\\192.168.54.13/csdp/manage/#/manage-view/systemManage/sys_regionMgr"}
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:13425 "POST /session/dc818719-a2e8-4466-9211-0dabf334aaa5/url HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     root:log.py:32 SUCCESS    Navigated to http:\\192.168.54.13/csdp/manage/#/manage-view/systemManage/sys_regionMgr, Spend 0.33606743812561035 seconds
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:388 POST http://127.0.0.1:13425/session/dc818719-a2e8-4466-9211-0dabf334aaa5/timeouts {"implicit": 5000}
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:13425 "POST /session/dc818719-a2e8-4466-9211-0dabf334aaa5/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     root:log.py:32 SUCCESS    Set wait all element display in 5 seconds, Spend 0.00399470329284668 seconds
+INFO     root:log.py:32 删除服务
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:388 POST http://127.0.0.1:13425/session/dc818719-a2e8-4466-9211-0dabf334aaa5/element {"using": "xpath", "value": "//a[contains(.,'\u6cb3\u5357')]/parent::li//child::i"}
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:13425 "POST /session/dc818719-a2e8-4466-9211-0dabf334aaa5/element HTTP/1.1" 404 324
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     root:log.py:32 FAIL    Unable to click element: <xpath->//a[contains(.,'河南')]/parent::li//child::i>, Spend 6.014927864074707 seconds
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:388 DELETE http://127.0.0.1:13425/session/dc818719-a2e8-4466-9211-0dabf334aaa5 {}
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:13425 "DELETE /session/dc818719-a2e8-4466-9211-0dabf334aaa5 HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     root:log.py:32 SUCCESS    Closed all window and quit the driver, Spend 0.8387589454650879 seconds
+INFO     root:log.py:32 ###############################  End  ###############################

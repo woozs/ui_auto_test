@@ -1,0 +1,170 @@
+{
+  "uid" : "d08515e64e8ff",
+  "name" : "test_delete_vpool",
+  "fullName" : "testcase.test_12_delete_vpool.Test_Vpool_Delete#test_delete_vpool",
+  "historyId" : "2d991eadb3e8816ef0e366b77cc45af7",
+  "time" : {
+    "start" : 1572753200571,
+    "stop" : 1572753220172,
+    "duration" : 19601
+  },
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.",
+  "statusTrace" : "self = <test_12_delete_vpool.Test_Vpool_Delete object at 0x00DA33F0>\n\n    @allure.story(\"删除VPOOL\")\n    @pytest.mark.flaky(reruns=3)\n    def test_delete_vpool(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n    \n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n    \n        self.login.login(\"系统管理员\", \"123456\")\n>       vdc_a.delete_vpool(p_data[\"vdcname\"],p_data[\"vpoolname\"])\n\ntestcase\\test_12_delete_vpool.py:31: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\npublic\\appModel\\vdcAction.py:72: in delete_vpool\n    self.vdcpage.click_az_buttun()\npublic\\pages\\vdcPage.py:31: in click_az_buttun\n    self.dr.click(\"css->.btn-link:nth-child(1)\")\npublic\\common\\pyselenium.py:213: in click\n    self.element_wait(css)\npublic\\common\\pyselenium.py:93: in element_wait\n    WebDriverWait(self.driver, secs, 1).until(EC.presence_of_element_located((By.CSS_SELECTOR, value)),messages)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.support.wait.WebDriverWait (session=\"62f8ceb3-d55c-42a7-ae8d-49848bb8b412\")>\nmethod = <selenium.webdriver.support.expected_conditions.presence_of_element_located object at 0x00FC7B30>\nmessage = 'Element: css->.btn-link:nth-child(1) not found in 5 seconds.'\n\n    def until(self, method, message=''):\n        \"\"\"Calls the method provided with the driver as an argument until the \\\n        return value is not False.\"\"\"\n        screen = None\n        stacktrace = None\n    \n        end_time = time.time() + self._timeout\n        while True:\n            try:\n                value = method(self._driver)\n                if value:\n                    return value\n            except self._ignored_exceptions as exc:\n                screen = getattr(exc, 'screen', None)\n                stacktrace = getattr(exc, 'stacktrace', None)\n            time.sleep(self._poll)\n            if time.time() > end_time:\n                break\n>       raise TimeoutException(message, screen, stacktrace)\nE       selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.\n\nD:\\Env\\ui_auto\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py:80: TimeoutException",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_Class__pytest_setup_class",
+    "time" : {
+      "start" : 1572753189391,
+      "stop" : 1572753200570,
+      "duration" : 11179
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.",
+    "statusTrace" : "self = <test_12_delete_vpool.Test_Vpool_Delete object at 0x00DA33F0>\n\n    @allure.story(\"删除VPOOL\")\n    @pytest.mark.flaky(reruns=3)\n    def test_delete_vpool(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n    \n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n    \n        self.login.login(\"系统管理员\", \"123456\")\n>       vdc_a.delete_vpool(p_data[\"vdcname\"],p_data[\"vpoolname\"])\n\ntestcase\\test_12_delete_vpool.py:31: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\npublic\\appModel\\vdcAction.py:72: in delete_vpool\n    self.vdcpage.click_az_buttun()\npublic\\pages\\vdcPage.py:31: in click_az_buttun\n    self.dr.click(\"css->.btn-link:nth-child(1)\")\npublic\\common\\pyselenium.py:213: in click\n    self.element_wait(css)\npublic\\common\\pyselenium.py:93: in element_wait\n    WebDriverWait(self.driver, secs, 1).until(EC.presence_of_element_located((By.CSS_SELECTOR, value)),messages)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.support.wait.WebDriverWait (session=\"62f8ceb3-d55c-42a7-ae8d-49848bb8b412\")>\nmethod = <selenium.webdriver.support.expected_conditions.presence_of_element_located object at 0x00FC7B30>\nmessage = 'Element: css->.btn-link:nth-child(1) not found in 5 seconds.'\n\n    def until(self, method, message=''):\n        \"\"\"Calls the method provided with the driver as an argument until the \\\n        return value is not False.\"\"\"\n        screen = None\n        stacktrace = None\n    \n        end_time = time.time() + self._timeout\n        while True:\n            try:\n                value = method(self._driver)\n                if value:\n                    return value\n            except self._ignored_exceptions as exc:\n                screen = getattr(exc, 'screen', None)\n                stacktrace = getattr(exc, 'stacktrace', None)\n            time.sleep(self._poll)\n            if time.time() > end_time:\n                break\n>       raise TimeoutException(message, screen, stacktrace)\nE       selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.\n\nD:\\Env\\ui_auto\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py:80: TimeoutException",
+    "steps" : [ {
+      "name" : "登录系统",
+      "time" : {
+        "start" : 1572753200574,
+        "stop" : 1572753200576,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "96b2f4672cf49f6",
+        "name" : "193f37db-b1cd-4d0f-a395-0866b1c1470f-attachment.attach",
+        "source" : "96b2f4672cf49f6.attach",
+        "type" : "text/plain",
+        "size" : 25
+      }, {
+        "uid" : "327b37f2b4ee3038",
+        "name" : "55409ef9-9fa9-4886-b462-81b051c5bfdd-attachment.attach",
+        "source" : "327b37f2b4ee3038.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "e29040b35f555e0",
+        "name" : "5f3b3994-dbb1-4855-959a-9b681614547a-attachment.attach",
+        "source" : "e29040b35f555e0.attach",
+        "type" : "text/plain",
+        "size" : 14
+      } ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "删除vpool",
+      "time" : {
+        "start" : 1572753204388,
+        "stop" : 1572753204390,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "42a6fc9c06f6a947",
+        "name" : "7218bceb-8f20-41c0-8c5c-24d8db8f241f-attachment.attach",
+        "source" : "42a6fc9c06f6a947.attach",
+        "type" : "text/plain",
+        "size" : 24
+      }, {
+        "uid" : "42e1dcc3eb6f780e",
+        "name" : "474e489e-240f-4ce6-a7d5-d65b2994f70b-attachment.attach",
+        "source" : "42e1dcc3eb6f780e.attach",
+        "type" : "text/plain",
+        "size" : 26
+      } ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "45fa64a48e871b1b",
+      "name" : "log",
+      "source" : "45fa64a48e871b1b.txt",
+      "type" : "text/plain",
+      "size" : 30952
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 6,
+    "hasContent" : true,
+    "stepsCount" : 2
+  },
+  "afterStages" : [ {
+    "name" : "_Class__pytest_setup_class::0",
+    "time" : {
+      "start" : 1572753220257,
+      "stop" : 1572753221710,
+      "duration" : 1453
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "VPOOL管理"
+  }, {
+    "name" : "story",
+    "value" : "删除VPOOL"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testcase"
+  }, {
+    "name" : "suite",
+    "value" : "test_12_delete_vpool"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_Vpool_Delete"
+  }, {
+    "name" : "host",
+    "value" : "wuzs"
+  }, {
+    "name" : "thread",
+    "value" : "23720-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testcase.test_12_delete_vpool"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d08515e64e8ff.json",
+  "parameterValues" : [ ]
+}

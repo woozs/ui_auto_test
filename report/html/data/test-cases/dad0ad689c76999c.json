@@ -1,0 +1,188 @@
+{
+  "uid" : "dad0ad689c76999c",
+  "name" : "test_create_vpool",
+  "fullName" : "testcase.test_11_ceate_crate_vpool.TestCreateVpool#test_create_vpool",
+  "historyId" : "cf96f0fa38cf85928985b0aacdd2379e",
+  "time" : {
+    "start" : 1572753074953,
+    "stop" : 1572753093664,
+    "duration" : 18711
+  },
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.",
+  "statusTrace" : "self = <test_11_ceate_crate_vpool.TestCreateVpool object at 0x00FC7450>\n\n    @allure.story(\"创建VPOOL\")\n    @pytest.mark.flaky(reruns=3)\n    def test_create_vpool(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n        login.login(datas[\"username\"], datas[\"password\"])\n        vdc_a.create_vpool(p_data[\"vdcname\"],p_data[\"vpoolname\"],\"虚拟资源\",\"数据中心\",\n>                          \"DC1\",p_data[\"vpooldesc\"])\n\ntestcase\\test_11_ceate_crate_vpool.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\npublic\\appModel\\vdcAction.py:47: in create_vpool\n    self.vdcpage.click_az_buttun()\npublic\\pages\\vdcPage.py:31: in click_az_buttun\n    self.dr.click(\"css->.btn-link:nth-child(1)\")\npublic\\common\\pyselenium.py:213: in click\n    self.element_wait(css)\npublic\\common\\pyselenium.py:93: in element_wait\n    WebDriverWait(self.driver, secs, 1).until(EC.presence_of_element_located((By.CSS_SELECTOR, value)),messages)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.support.wait.WebDriverWait (session=\"9eddf331-a334-45f8-a3db-54aa44d90839\")>\nmethod = <selenium.webdriver.support.expected_conditions.presence_of_element_located object at 0x00FD9730>\nmessage = 'Element: css->.btn-link:nth-child(1) not found in 5 seconds.'\n\n    def until(self, method, message=''):\n        \"\"\"Calls the method provided with the driver as an argument until the \\\n        return value is not False.\"\"\"\n        screen = None\n        stacktrace = None\n    \n        end_time = time.time() + self._timeout\n        while True:\n            try:\n                value = method(self._driver)\n                if value:\n                    return value\n            except self._ignored_exceptions as exc:\n                screen = getattr(exc, 'screen', None)\n                stacktrace = getattr(exc, 'stacktrace', None)\n            time.sleep(self._poll)\n            if time.time() > end_time:\n                break\n>       raise TimeoutException(message, screen, stacktrace)\nE       selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.\n\nD:\\Env\\ui_auto\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py:80: TimeoutException",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_Class__pytest_setup_class",
+    "time" : {
+      "start" : 1572753064913,
+      "stop" : 1572753074953,
+      "duration" : 10040
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.",
+    "statusTrace" : "self = <test_11_ceate_crate_vpool.TestCreateVpool object at 0x00FC7450>\n\n    @allure.story(\"创建VPOOL\")\n    @pytest.mark.flaky(reruns=3)\n    def test_create_vpool(self):\n        vdc_a = vdcAction.VdcACction(self.dr)\n        vdc_pg = vdcPage.VdcPage(self.dr)\n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"vdc_vpool.xlsx\",\"Sheet1\")[0]\n        login.login(datas[\"username\"], datas[\"password\"])\n        vdc_a.create_vpool(p_data[\"vdcname\"],p_data[\"vpoolname\"],\"虚拟资源\",\"数据中心\",\n>                          \"DC1\",p_data[\"vpooldesc\"])\n\ntestcase\\test_11_ceate_crate_vpool.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\npublic\\appModel\\vdcAction.py:47: in create_vpool\n    self.vdcpage.click_az_buttun()\npublic\\pages\\vdcPage.py:31: in click_az_buttun\n    self.dr.click(\"css->.btn-link:nth-child(1)\")\npublic\\common\\pyselenium.py:213: in click\n    self.element_wait(css)\npublic\\common\\pyselenium.py:93: in element_wait\n    WebDriverWait(self.driver, secs, 1).until(EC.presence_of_element_located((By.CSS_SELECTOR, value)),messages)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <selenium.webdriver.support.wait.WebDriverWait (session=\"9eddf331-a334-45f8-a3db-54aa44d90839\")>\nmethod = <selenium.webdriver.support.expected_conditions.presence_of_element_located object at 0x00FD9730>\nmessage = 'Element: css->.btn-link:nth-child(1) not found in 5 seconds.'\n\n    def until(self, method, message=''):\n        \"\"\"Calls the method provided with the driver as an argument until the \\\n        return value is not False.\"\"\"\n        screen = None\n        stacktrace = None\n    \n        end_time = time.time() + self._timeout\n        while True:\n            try:\n                value = method(self._driver)\n                if value:\n                    return value\n            except self._ignored_exceptions as exc:\n                screen = getattr(exc, 'screen', None)\n                stacktrace = getattr(exc, 'stacktrace', None)\n            time.sleep(self._poll)\n            if time.time() > end_time:\n                break\n>       raise TimeoutException(message, screen, stacktrace)\nE       selenium.common.exceptions.TimeoutException: Message: Element: css->.btn-link:nth-child(1) not found in 5 seconds.\n\nD:\\Env\\ui_auto\\lib\\site-packages\\selenium\\webdriver\\support\\wait.py:80: TimeoutException",
+    "steps" : [ {
+      "name" : "登录系统",
+      "time" : {
+        "start" : 1572753074959,
+        "stop" : 1572753074961,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "6fb0d5913d7d71f4",
+        "name" : "6580eda8-6761-4f43-b5c6-4f8c20bb512d-attachment.attach",
+        "source" : "6fb0d5913d7d71f4.attach",
+        "type" : "text/plain",
+        "size" : 27
+      }, {
+        "uid" : "33774de1cbba31be",
+        "name" : "d1c44255-c1e1-4cc1-b755-e8098d9d3c52-attachment.attach",
+        "source" : "33774de1cbba31be.attach",
+        "type" : "text/plain",
+        "size" : 15
+      }, {
+        "uid" : "f1986c208e2bf120",
+        "name" : "fc1a2acd-69a7-45c3-ba39-917736eade93-attachment.attach",
+        "source" : "f1986c208e2bf120.attach",
+        "type" : "text/plain",
+        "size" : 14
+      } ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "创建vpool",
+      "time" : {
+        "start" : 1572753078591,
+        "stop" : 1572753078597,
+        "duration" : 6
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "426bcaee93988d6a",
+        "name" : "1f0411c7-9b41-48d4-868f-b95787b49f19-attachment.attach",
+        "source" : "426bcaee93988d6a.attach",
+        "type" : "text/plain",
+        "size" : 24
+      }, {
+        "uid" : "28622b9158950194",
+        "name" : "aa9a7f2a-b2db-4595-b9c1-d83a05404965-attachment.attach",
+        "source" : "28622b9158950194.attach",
+        "type" : "text/plain",
+        "size" : 26
+      }, {
+        "uid" : "e0b8b643bb5405a9",
+        "name" : "49373779-59ec-4588-a5b9-ac46237eef80-attachment.attach",
+        "source" : "e0b8b643bb5405a9.attach",
+        "type" : "text/plain",
+        "size" : 25
+      }, {
+        "uid" : "7d79a392cf56c3a2",
+        "name" : "c11d3e6a-d94f-49c9-83a8-7161313e2e59-attachment.attach",
+        "source" : "7d79a392cf56c3a2.attach",
+        "type" : "text/plain",
+        "size" : 19
+      }, {
+        "uid" : "b7b9424b9bff1742",
+        "name" : "26f36255-6ecb-4718-893a-42f69ee64326-attachment.attach",
+        "source" : "b7b9424b9bff1742.attach",
+        "type" : "text/plain",
+        "size" : 27
+      } ],
+      "parameters" : [ ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 5,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "fb78bc0e991c8021",
+      "name" : "log",
+      "source" : "fb78bc0e991c8021.txt",
+      "type" : "text/plain",
+      "size" : 31027
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 9,
+    "hasContent" : true,
+    "stepsCount" : 2
+  },
+  "afterStages" : [ {
+    "name" : "_Class__pytest_setup_class::0",
+    "time" : {
+      "start" : 1572753093726,
+      "stop" : 1572753096134,
+      "duration" : 2408
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "VPOOL管理"
+  }, {
+    "name" : "story",
+    "value" : "创建VPOOL"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testcase"
+  }, {
+    "name" : "suite",
+    "value" : "test_11_ceate_crate_vpool"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCreateVpool"
+  }, {
+    "name" : "host",
+    "value" : "wuzs"
+  }, {
+    "name" : "thread",
+    "value" : "23720-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testcase.test_11_ceate_crate_vpool"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "dad0ad689c76999c.json",
+  "parameterValues" : [ ]
+}

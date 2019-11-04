@@ -1,0 +1,104 @@
+{
+  "uid" : "5abb9459c506c959",
+  "name" : "test_delete_region",
+  "fullName" : "testcase.test_19_delete_region.TestDeleteRegion#test_delete_region",
+  "historyId" : "fc3840d88ceb86dc1f69a3dec4746fb9",
+  "time" : {
+    "start" : 1572684091123,
+    "stop" : 1572684110565,
+    "duration" : 19442
+  },
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'TestDeleteRegion' object has no attribute 'assertFalse'",
+  "statusTrace" : "self = <test_19_delete_region.TestDeleteRegion object at 0x05380150>\n\n    @pytest.mark.flaky(reruns=3)\n    def test_delete_region(self):\n    \n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"res_node_data.xlsx\",\"region\")[0]\n    \n        arn = resNodeAction.Add_Res_Node(self.dr)\n        srmpg =sys_regionMgrPage.SysRegionMgrPage(self.dr)\n        # login.login(\"wuzs0001\",\"1qaz!QAZ\")\n        login.login(datas[\"username\"],datas[\"password\"])\n    \n        arn.delete_res_node(p_data[\"regionname\"],p_data[\"nodename\"])\n        # text = self.dr.get_text(\"xpath->//div[@class='box-body']/table-component/div/table/tbody\")\n        #搜索项目\n    \n    \n        srmpg.open_sys_regionMgr_page()\n        flag = self.dr.element_exist(\"xpath->//a[contains(text(),'%s')]\"%p_data[\"nodename\"])\n>       self.assertFalse(flag,\"未查询到资源节点%s\"%p_data[\"nodename\"])\nE       AttributeError: 'TestDeleteRegion' object has no attribute 'assertFalse'\n\ntestcase\\test_19_delete_region.py:41: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "_Class__pytest_setup_class",
+    "time" : {
+      "start" : 1572684080561,
+      "stop" : 1572684091122,
+      "duration" : 10561
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'TestDeleteRegion' object has no attribute 'assertFalse'",
+    "statusTrace" : "self = <test_19_delete_region.TestDeleteRegion object at 0x05380150>\n\n    @pytest.mark.flaky(reruns=3)\n    def test_delete_region(self):\n    \n        login = Login(self.dr)\n        datas = datainfo.get_xls_to_dict(\"user.xlsx\", \"Sheet1\")[0]\n        p_data = datainfo.get_xls_to_dict(\"res_node_data.xlsx\",\"region\")[0]\n    \n        arn = resNodeAction.Add_Res_Node(self.dr)\n        srmpg =sys_regionMgrPage.SysRegionMgrPage(self.dr)\n        # login.login(\"wuzs0001\",\"1qaz!QAZ\")\n        login.login(datas[\"username\"],datas[\"password\"])\n    \n        arn.delete_res_node(p_data[\"regionname\"],p_data[\"nodename\"])\n        # text = self.dr.get_text(\"xpath->//div[@class='box-body']/table-component/div/table/tbody\")\n        #搜索项目\n    \n    \n        srmpg.open_sys_regionMgr_page()\n        flag = self.dr.element_exist(\"xpath->//a[contains(text(),'%s')]\"%p_data[\"nodename\"])\n>       self.assertFalse(flag,\"未查询到资源节点%s\"%p_data[\"nodename\"])\nE       AttributeError: 'TestDeleteRegion' object has no attribute 'assertFalse'\n\ntestcase\\test_19_delete_region.py:41: AttributeError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "64f2fc46c9965007",
+      "name" : "log",
+      "source" : "64f2fc46c9965007.txt",
+      "type" : "text/plain",
+      "size" : 21478
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 1,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "_Class__pytest_setup_class::0",
+    "time" : {
+      "start" : 1572684110573,
+      "stop" : 1572684112483,
+      "duration" : 1910
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "testcase"
+  }, {
+    "name" : "suite",
+    "value" : "test_19_delete_region"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestDeleteRegion"
+  }, {
+    "name" : "host",
+    "value" : "wuzs"
+  }, {
+    "name" : "thread",
+    "value" : "5348-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testcase.test_19_delete_region"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5abb9459c506c959.json",
+  "parameterValues" : [ ]
+}
