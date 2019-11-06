@@ -17,10 +17,10 @@ from config import globalparam
 reportPath = globalparam.report_path
 logger = Log()
 # 配置收发件人
-recvaddress = ['wuzushun1992@163.com','627383987@qq.com']
+recvaddress = ['邮箱','']
 # 163的用户名和密码
-sendaddr_name = 'wuzushun@aliyun.com'
-sendaddr_pswd = 'inspur123'
+sendaddr_name = '邮箱'
+sendaddr_pswd = '密码'
 
 class SendMail:
 	def __init__(self,recver=None):

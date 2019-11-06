@@ -6,18 +6,16 @@
 # @File    : initialize_Env.py
 # @Software: PyCharm
 
-import os
-
 from public.common.log import Log
+from config import globalparam
 from config.confRelevance import ConfRelevance
-BASE_PATH = str(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
-CONF_PATH = BASE_PATH + "\\config\\config.ini"
-ENV_PATH = BASE_PATH + "\\report\\xml\\environment.xml"
+
+CONF_PATH = globalparam.config_file_path +"\\config.ini"
+ENV_PATH = globalparam.xml_report_path+"\\environment.xml"
 
 
 class Init_Env:
     """初始化环境信息，更新xml文件"""
-
     def __init__(self):
         log = Log()
         log.info("获取环境配置信息")

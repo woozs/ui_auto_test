@@ -33,14 +33,12 @@ if __name__ == '__main__':
 
     log = log.Log()
 
-
-
     shell = shell.Shell()
     xml_report_path = globalparam.xml_report_path
     html_report_path = globalparam.html_report_path
 
     # 初始化allure环境配置文件environment.xml
-    # initialize_Env.Init_Env().init()
+    initialize_Env.Init_Env().init()
 
     # 定义测试集
     args = ['-s', '-q', '--alluredir', xml_report_path]

@@ -42,7 +42,5 @@ class TestLoin(mytest.MyTest):
         assert flag
 
 
-
-
 if __name__ == "__main__":
     pytest.main(["-s", "test_00_login.py"])
