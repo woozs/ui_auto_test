@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/11/2 13:00
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : initialize_Env.py
 # @Software: PyCharm
 
@@ -10,17 +10,17 @@ from public.common.log import Log
 from config import globalparam
 from config.confRelevance import ConfRelevance
 
-CONF_PATH = globalparam.config_file_path +"\\config.ini"
-ENV_PATH = globalparam.xml_report_path+"\\environment.xml"
+CONF_PATH = globalparam.config_file_path + "\\config.ini"
+ENV_PATH = globalparam.xml_report_path + "\\environment.xml"
 
 
 class Init_Env:
     """初始化环境信息，更新xml文件"""
+
     def __init__(self):
         log = Log()
         log.info("获取环境配置信息")
         # 读取配置文件，返回字典格式
-        print( CONF_PATH)
         self.data = ConfRelevance(CONF_PATH, "env").get_relevance_conf()
 
     def dict_to_xml(self):

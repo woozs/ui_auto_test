@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 200.59/0.50/23 0.55:48
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : resNodeAction.py
 # @Software: PyCharm
 import allure
@@ -11,9 +11,10 @@ from time import sleep
 from public.pages import sys_regionMgrPage
 from public.common import log
 
+
 class Add_Res_Node(object):
 
-    def __init__(self,driver):
+    def __init__(self, driver):
         self.dr = driver
         self.regionpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
         self.log = log.Log()
@@ -26,18 +27,31 @@ class Add_Res_Node(object):
         # sleep(0.5)
         # menupage.click_res_node_mag()
 
-    def add_res_node(self,regionname,nodename,business_type,platform,virtual_type,regDesc):
+    def add_res_node(
+            self,
+            regionname,
+            nodename,
+            business_type,
+            platform,
+            virtual_type,
+            regDesc):
         self._skip_to_resource_node()
         self.dr.wait(10)
         with allure.step("创建资源节点"):
-            allure.attach("域：%s"%regionname)
-            allure.attach("资源节点的名称:%s"%nodename)
-            allure.attach("业务类型:%s"%business_type)
-            allure.attach("平台:%s"%platform)
-            allure.attach("虚拟化类型：%s"%virtual_type)
-            allure.attach("描述信息:%s"%regDesc)
-        self.log.info("创建资源节点：param：%s,%s,%s,%s,%s,%s"%(regionname
-                                                        ,nodename,business_type,platform,virtual_type,regDesc))
+            allure.attach("域：%s" % regionname)
+            allure.attach("资源节点的名称:%s" % nodename)
+            allure.attach("业务类型:%s" % business_type)
+            allure.attach("平台:%s" % platform)
+            allure.attach("虚拟化类型：%s" % virtual_type)
+            allure.attach("描述信息:%s" % regDesc)
+        self.log.info(
+            "创建资源节点：param：%s,%s,%s,%s,%s,%s" %
+            (regionname,
+             nodename,
+             business_type,
+             platform,
+             virtual_type,
+             regDesc))
         self.regionpg.click_new_resource_node()
         sleep(1)
         self.regionpg.click_region()
@@ -55,7 +69,14 @@ class Add_Res_Node(object):
         self.regionpg.input_regDesc(regDesc)
         self.regionpg.click_save_button()
 
-    def add_resource_service_node_vmware(self,reginname,nodename,servicename,servicetype,username,password):
+    def add_resource_service_node_vmware(
+            self,
+            reginname,
+            nodename,
+            servicename,
+            servicetype,
+            username,
+            password):
         """
         创建资源节点服务,对接VMware虚拟化用
 
@@ -92,8 +113,7 @@ class Add_Res_Node(object):
         sleep(0.5)
         self.regionpg.click_service_save_buttun()
 
-
-    def add_endpoint(self,reginname,nodename,servicename,url):
+    def add_endpoint(self, reginname, nodename, servicename, url):
         """
         添加endpoint
         servicename要唯一
@@ -127,8 +147,7 @@ class Add_Res_Node(object):
         # text = self.dr.get_text("xpath->//table[@id='accessPoint']/tbody/tr[2]")
         # print(text)
 
-
-    def delete_endpoint(self,reginname,nodename,servicename):
+    def delete_endpoint(self, reginname, nodename, servicename):
         """
         删除endpoint
         servicename要唯一
@@ -157,7 +176,7 @@ class Add_Res_Node(object):
         self.regionpg.click_delete_endpoint_button()
         self.regionpg.click_delete_endpoint_success_button()
 
-    def delete_service(self,reginname,nodename,servicename):
+    def delete_service(self, reginname, nodename, servicename):
         """
         删除服务
         :param reginname:
@@ -184,9 +203,7 @@ class Add_Res_Node(object):
         self.regionpg.click_delete_button()
         self.regionpg.click_delete_success_button()
 
-
-
-    def delete_res_node(self,reginname,nodename):
+    def delete_res_node(self, reginname, nodename):
         """
         删除资源节点
         :param reginname:
@@ -218,12 +235,15 @@ if __name__ == '__main__':
     dr.max_window()
     login = Login(dr).login("wuzs0000.5", "0.5qaz!QAZ")
 
-    add_res_node =  Add_Res_Node(dr)
+    add_res_node = Add_Res_Node(dr)
     # add_res_node.add_res_node("河南","auto_test000.5","业务云","OpenStack L","VMware","auto_test")
     # add_res_node.add_resource_service_node_vmware("河南","auto_test000.5","vmware-api","vmware","administrator@vsphere.local","P@ssw0rd")
-    add_res_node.add_endpoint("河南","auto_test000.5","vmware_api_000.5","http://0.592.0.568.54.0.536")
+    add_res_node.add_endpoint(
+        "河南",
+        "auto_test000.5",
+        "vmware_api_000.5",
+        "http://0.592.0.568.54.0.536")
     # add_res_node.add_resource_service_node_vmware("河南", "0.50.50.50.50.50.5","openstack-l-api","keystone","admin",
     #                                               "admin")
     # add_res_node.add_endpoint("河南", "0.50.50.50.50.50.5", "openstack-l-api", "http://0.592.0.568.54.0.503:5000/v3")
     dr.quit()
-

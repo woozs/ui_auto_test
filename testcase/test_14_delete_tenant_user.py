@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/30 9:07
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_14_delete_tenant_user.py
 # @Software: PyCharm
 import pytest
@@ -40,6 +40,7 @@ class TestDeleteUser(mytest.MyTest):
 
         # text = self.dr.get_text("xpath->//div[@class='box-body']/table-component/div/table/tbody")
         # print(text)
+
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_14_delete_tenant_user.py"])

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/25 10:07
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : projectAction.py
 # @Software: PyCharm
 import allure
@@ -11,17 +11,18 @@ from time import sleep
 from public.pages import authProjectPage
 from public.common import log
 
+
 class PojectAction(object):
     def __init__(self, driver):
         self.dr = driver
-        self.propg =authProjectPage.AuthProjectPage(self.dr)
+        self.propg = authProjectPage.AuthProjectPage(self.dr)
         self.log = log.Log()
 
-    def create_project(self,tenantname,projectname,projectdesc):
+    def create_project(self, tenantname, projectname, projectdesc):
         with allure.step("创建项目"):
-            allure.attach("运营部门名称：%s"%tenantname)
-            allure.attach("项目名称：%s"%projectname)
-            allure.attach("项目描述：%s"%projectdesc)
+            allure.attach("运营部门名称：%s" % tenantname)
+            allure.attach("项目名称：%s" % projectname)
+            allure.attach("项目描述：%s" % projectdesc)
         self.propg.open_authproject()
         self.dr.wait(10)
         self.propg.click_new_create_buttun()
@@ -34,9 +35,9 @@ class PojectAction(object):
         self.propg.input_project_desc(projectdesc)
         self.propg.click_save_new_project()
 
-    def delete_project(self,projectname):
+    def delete_project(self, projectname):
         with allure.step("删除项目"):
-            allure.attach("项目名称：%s"%projectname)
+            allure.attach("项目名称：%s" % projectname)
         self.propg.open_authproject()
         self.dr.wait(10)
         self.propg.input_and_search_project(projectname)
@@ -56,6 +57,6 @@ if __name__ == '__main__':
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
     login = Login(dr).login("wuzs_auto_0001", "1qaz!QAZ")
-    pa  = PojectAction(dr)
+    pa = PojectAction(dr)
     # pa.create_project("wuzs_tenant_auto_001","wuzs_auto01_project","wuzs_auto")
     pa.delete_project("wuzs_auto01_project")

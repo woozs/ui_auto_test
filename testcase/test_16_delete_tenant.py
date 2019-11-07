@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/30 10:44
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_16_delete_tenant.py
 # @Software: PyCharm
 import time
@@ -14,6 +14,7 @@ from public.common import datainfo
 from public.appModel import tenantAction
 from public.pages import authTenantPage
 from public.appModel.loginAction import Login
+
 
 @allure.feature("运营部门管理")
 class TestTenantDelete(mytest.MyTest):
@@ -27,11 +28,11 @@ class TestTenantDelete(mytest.MyTest):
         tpg = authTenantPage.AuthTenantPage(self.dr)
         ta = tenantAction.TenantAction(self.dr)
         # login.login("wuzs0001","1qaz!QAZ")
-        login.login("系统管理员","123456")
+        login.login("系统管理员", "123456")
 
         try:
             ta.remove_post(t_data["tenantname"])
-        except:
+        except BaseException:
             print("移除用户失败，请确认是否该岗位未关联用户")
         ta.delete_tenant(t_data["tenantname"])
 
@@ -41,6 +42,7 @@ class TestTenantDelete(mytest.MyTest):
         time.sleep(2)
         flag = self.dr.element_exist("id->card")
         assert flag is False
+
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_16_delete_tenant.py"])

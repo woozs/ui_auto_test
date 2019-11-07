@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/27 20:24
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_08_create_endpoint.py
 # @Software: PyCharm
 import time
@@ -26,7 +26,8 @@ class TestCreateEndpoint(mytest.MyTest):
     def setup_class(self):
 
         self.logger = Log()
-        self.logger.info('############################### START ###############################')
+        self.logger.info(
+            '############################### START ###############################')
         self.dr = pyselenium.PySelenium(globalparam.browser)
         self.dr.max_window()
         self.login = Login(self.dr)
@@ -45,10 +46,15 @@ class TestCreateEndpoint(mytest.MyTest):
         """
 
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[0]
-        self.arn.add_endpoint(p_data["regionname"],p_data["nodename"],p_data["servicename"],p_data["url"])
+        self.arn.add_endpoint(
+            p_data["regionname"],
+            p_data["nodename"],
+            p_data["servicename"],
+            p_data["url"])
 
         time.sleep(0.5)
-        text = self.dr.get_text("xpath->//table[@id='accessPoint']/tbody/tr[2]")
+        text = self.dr.get_text(
+            "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert p_data["url"] in text
 
     @allure.story("openstack创建endpoint")
@@ -61,10 +67,15 @@ class TestCreateEndpoint(mytest.MyTest):
         """
 
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[1]
-        self.arn.add_endpoint(p_data["regionname"], p_data["nodename"], p_data["servicename"], p_data["url"])
+        self.arn.add_endpoint(
+            p_data["regionname"],
+            p_data["nodename"],
+            p_data["servicename"],
+            p_data["url"])
 
         time.sleep(0.5)
-        text = self.dr.get_text("xpath->//table[@id='accessPoint']/tbody/tr[2]")
+        text = self.dr.get_text(
+            "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert p_data["url"] in text
 
 

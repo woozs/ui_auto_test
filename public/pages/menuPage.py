@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/23 15:37
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : menuPage.py
 # @Software: PyCharm
 
@@ -16,4 +16,3 @@ class MenuPage(basepage.Page):
 
     def click_res_node_mag(self):
         self.dr.click("xpath -> //li[contains(.,'资源节点管理')]")
-

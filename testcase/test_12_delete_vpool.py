@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/27 19:21
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_12_delete_vpool.py
 # @Software: PyCharm
 
@@ -15,6 +15,7 @@ from public.appModel import vdcAction
 from public.pages import vdcPage
 from public.common import datainfo
 
+
 @allure.feature("VPOOL管理")
 class Test_Vpool_Delete(mytest.MyTest):
     """测试删除vpool"""
@@ -25,10 +26,10 @@ class Test_Vpool_Delete(mytest.MyTest):
         vdc_a = vdcAction.VdcACction(self.dr)
         vdc_pg = vdcPage.VdcPage(self.dr)
 
-        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx","Sheet1")[0]
+        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "Sheet1")[0]
 
         self.login.login("系统管理员", "123456")
-        vdc_a.delete_vpool(p_data["vdcname"],p_data["vpoolname"])
+        vdc_a.delete_vpool(p_data["vdcname"], p_data["vpoolname"])
         vdc_pg.open_vdc_page()
         time.sleep(1)
         vdc_pg.search_vdc(p_data["vdcname"])
@@ -39,6 +40,7 @@ class Test_Vpool_Delete(mytest.MyTest):
 
         flag = self.dr.element_exist("xpath->//td")
         assert flag is False
+
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_12_delete_vpool.py"])

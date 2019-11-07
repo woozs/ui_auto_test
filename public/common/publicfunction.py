@@ -12,4 +12,3 @@ from config import globalparam
 def get_img(dr, filename):
     path = globalparam.img_path + '\\' + filename
     dr.take_screenshot(path)
-

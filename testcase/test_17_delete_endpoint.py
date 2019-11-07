@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 200.59/0.50/30 0.50.5:0.50
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_17_delete_endpoint.py
 # @Software: PyCharm
 
@@ -27,7 +27,8 @@ class TestDeleteEndpoint(mytest.MyTest):
     def setup_class(self):
         """重写类级setup"""
         self.logger = Log()
-        self.logger.info('############################### START ###############################')
+        self.logger.info(
+            '############################### START ###############################')
         self.dr = pyselenium.PySelenium(globalparam.browser)
         self.dr.max_window()
         self.login = Login(self.dr)
@@ -45,7 +46,10 @@ class TestDeleteEndpoint(mytest.MyTest):
         """
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[0]
         # self.arn.add_endpoint(p_data["regionname"],p_data["nodename"],p_data["servicename"],p_data["url"])
-        self.arn.delete_endpoint(p_data["regionname"],p_data["nodename"],p_data["servicename"])
+        self.arn.delete_endpoint(
+            p_data["regionname"],
+            p_data["nodename"],
+            p_data["servicename"])
 
         # self.srmpg.open_sys_regionMgr_page()
         #
@@ -57,7 +61,8 @@ class TestDeleteEndpoint(mytest.MyTest):
         # self.srmpg.click_tree_res_service(p_data["servicename"])
         # time.sleep(0.5)
         time.sleep(1)
-        flag = self.dr.element_exist("xpath->//table[@id='accessPoint']/tbody/tr[2]")
+        flag = self.dr.element_exist(
+            "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert flag is False
 
     @allure.story("openstack删除endpoint")
@@ -70,7 +75,10 @@ class TestDeleteEndpoint(mytest.MyTest):
 
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[1]
         # self.arn.add_endpoint(p_data["regionname"], p_data["nodename"], p_data["servicename"], p_data["url"])
-        self.arn.delete_endpoint(p_data["regionname"], p_data["nodename"], p_data["servicename"])
+        self.arn.delete_endpoint(
+            p_data["regionname"],
+            p_data["nodename"],
+            p_data["servicename"])
 
         # self.srmpg.open_sys_regionMgr_page()
         # self.srmpg.click_region_tree(p_data["regionname"])
@@ -81,7 +89,8 @@ class TestDeleteEndpoint(mytest.MyTest):
         # self.srmpg.click_tree_res_service(p_data["servicename"])
         # time.sleep(0.5)
         time.sleep(1)
-        flag = self.dr.element_exist("xpath->//table[@id='accessPoint']/tbody/tr[2]")
+        flag = self.dr.element_exist(
+            "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert flag is False
 
 

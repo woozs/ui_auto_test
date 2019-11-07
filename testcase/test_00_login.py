@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/23 14:37
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_00_login.py
 # @Software: PyCharm
 import pytest
@@ -26,7 +26,8 @@ class TestLoin(mytest.MyTest):
     #
     # def teardown_class(self):
     #     self.dr.quit()
-    #     self.logger.info('###############################  End  ###############################')
+    # self.logger.info('###############################  End
+    # ###############################')
     @allure.story("系统管理员登录系统")
     @pytest.mark.flaky(reruns=3)
     def test_login(self):

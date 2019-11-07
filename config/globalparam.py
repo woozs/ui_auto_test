@@ -25,3 +25,6 @@ url = read_config.getValue("env","url")
 #
 xml_report_path=os.path.join(prj_path, 'report', 'xml')
 html_report_path = os.path.join(prj_path, 'report', 'html')
+
+#cookie_path
+cookie_path = os.path.join(prj_path, 'data', 'cookie_data')

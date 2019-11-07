@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 #!/usr/bin/env.ini python
 # -*- coding: utf-8 -*-
@@ -47,9 +47,9 @@ if __name__ == '__main__':
     cmd = 'allure generate %s -o %s  --clean' % (
         xml_report_path, html_report_path)
     log.info("执行allure，生成测试报告")
-    print(cmd)
     try:
         shell.invoke(cmd)
     except Exception:
         log.error('执行用例失败，请检查环境配置')
         raise
+    print("报告已生成，请查看")

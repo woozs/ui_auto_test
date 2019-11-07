@@ -4,10 +4,13 @@
 # @Author  : mrwuzs
 # @Site    :
 # @Software: PyCharm
+
+
 class Page(object):
     """
     This is a base page class for Page Object.
     """
+
     def __init__(self, selenium_driver):
         self.dr = selenium_driver
 
@@ -16,8 +19,3 @@ class Page(object):
 
     def click_res_node_mag(self):
         self.dr.click("xpath -> //li[contains(.,'资源节点管理')]")
-
-
-
-
-

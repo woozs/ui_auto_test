@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/24 11:26
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : vdcPage.py
 # @Software: PyCharm
 
@@ -13,19 +13,21 @@ from config import globalparam
 class VdcPage(basepage.Page):
 
     def open_vdc_page(self):
-        self.dr.open(globalparam.url+"/csdp/manage/#/manage-view/adminManage/resVDCMgr")
+        self.dr.open(
+            globalparam.url +
+            "/csdp/manage/#/manage-view/adminManage/resVDCMgr")
 
     def click_new_vdc_buttun(self):
         self.dr.click("xpath->//div[3]/button")
 
-    def input_vdc_name(self,value):
-        self.dr.clear_type("id->vdcName",value)
+    def input_vdc_name(self, value):
+        self.dr.clear_type("id->vdcName", value)
 
     def click_save_buttun(self):
         self.dr.click("css->.modal-footer:nth-child(3) > .btn-warning")
 
-    def search_vdc(self,value):
-        self.dr.type_and_enter("xpath->(//input[@type='text'])[12]",value)
+    def search_vdc(self, value):
+        self.dr.type_and_enter("xpath->(//input[@type='text'])[12]", value)
 
     def click_az_buttun(self):
         self.dr.click("css->.btn-link:nth-child(1)")
@@ -33,35 +35,38 @@ class VdcPage(basepage.Page):
     def click_new_az_buttun(self):
         self.dr.click("css->.mr-5")
 
-    def input_az_name(self,value):
-        self.dr.clear_type("id->vPoolName",value)
+    def input_az_name(self, value):
+        self.dr.clear_type("id->vPoolName", value)
 
     def click_resource_type(self):
-        self.dr.click("xpath->//*[@id='AddandEdit_form']/div/div[2]/div/div/div[1]/span/span[2]/span")
+        self.dr.click(
+            "xpath->//*[@id='AddandEdit_form']/div/div[2]/div/div/div[1]/span/span[2]/span")
 
-    def inpurt_resource_type(self,value):
-        self.dr.type_and_enter("css->.open > .form-control",value)
+    def inpurt_resource_type(self, value):
+        self.dr.type_and_enter("css->.open > .form-control", value)
 
     def click_type(self):
-        self.dr.click("xpath->//*[@id='AddandEdit_form']/div/div[5]/div/div/div[1]/span/span[2]/span")
+        self.dr.click(
+            "xpath->//*[@id='AddandEdit_form']/div/div[5]/div/div/div[1]/span/span[2]/span")
 
-    def input_type(self,value):
-        self.dr.type_and_enter("css->.open > .form-control",value)
+    def input_type(self, value):
+        self.dr.type_and_enter("css->.open > .form-control", value)
 
     def click_data_center(self):
-        self.dr.click("xpath->//*[@id='AddandEdit_form']/div/div[6]/div/div/div[1]/span/span[2]/span")
+        self.dr.click(
+            "xpath->//*[@id='AddandEdit_form']/div/div[6]/div/div/div[1]/span/span[2]/span")
 
-    def input_date_center(self,value):
-        self.dr.type_and_enter("css->.ng-pristine > .form-control",value)
+    def input_date_center(self, value):
+        self.dr.type_and_enter("css->.ng-pristine > .form-control", value)
 
-    def input_vPoolDesc(self,value):
-        self.dr.clear_type("id->vPoolDesc",value)
+    def input_vPoolDesc(self, value):
+        self.dr.clear_type("id->vPoolDesc", value)
 
     def click_save_az_buttun(self):
         self.dr.click("xpath->//*[@id='AddandEdit']/div[3]/button[1]")
 
-    def search_vpool(self,value):
-        self.dr.type_and_enter("xpath->(//input[@type='text'])[12]",value)
+    def search_vpool(self, value):
+        self.dr.type_and_enter("xpath->(//input[@type='text'])[12]", value)
 
     def click_vpool_more_button(self):
         self.dr.click("xpath->//td[10]/div/a")

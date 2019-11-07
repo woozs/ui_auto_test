@@ -2,30 +2,37 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/24 15:19
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : userAction.py
 # @Software: PyCharm
 import allure
 
 from time import sleep
-from public.pages import sysUorgMgrPage,sysMorgMgrPage,authUserPage
+from public.pages import sysUorgMgrPage, sysMorgMgrPage, authUserPage
 from public.common import log
+
 
 class UserAction(object):
     def __init__(self, driver):
         self.dr = driver
-        self.userpage =sysUorgMgrPage.SysUorgMgrPage(self.dr)
+        self.userpage = sysUorgMgrPage.SysUorgMgrPage(self.dr)
         self.mgrpage = sysMorgMgrPage.SysMorgMgrPage(self.dr)
-        self.a_u_pg =  authUserPage.AuthUsertPage(self.dr)
+        self.a_u_pg = authUserPage.AuthUsertPage(self.dr)
         self.log = log.Log()
 
-
-    def create_user(self,mgrname,username,firstname,password,repassword,email):
+    def create_user(
+            self,
+            mgrname,
+            username,
+            firstname,
+            password,
+            repassword,
+            email):
         with allure.step("创建用户"):
-            allure.attach("域名称：%s"%mgrname)
-            allure.attach("用户名:%s"%username)
-            allure.attach("密码:%s"%password)
-            allure.attach("电邮箱:%s"%email)
+            allure.attach("域名称：%s" % mgrname)
+            allure.attach("用户名:%s" % username)
+            allure.attach("密码:%s" % password)
+            allure.attach("电邮箱:%s" % email)
         self.userpage.open_uorgmgrpage()
         sleep(1)
         self.userpage.click_new_user_buttun()
@@ -38,7 +45,7 @@ class UserAction(object):
         self.userpage.input_email(email)
         self.userpage.click_save_user_buttun()
 
-    def delete_user(self,username):
+    def delete_user(self, username):
         with allure.step("删除用户"):
             allure.attach("用户名：%s" % username)
         self.userpage.open_uorgmgrpage()
@@ -50,11 +57,7 @@ class UserAction(object):
         sleep(0.5)
         self.userpage.click_user_delete_success_button()
 
-
-
-
-
-    def allocation_domain_administrator(self,mgrname,username):
+    def allocation_domain_administrator(self, mgrname, username):
         with allure.step("给域分配管理员"):
             allure.attach("域名称：%s" % mgrname)
             allure.attach("用户名:%s" % username)
@@ -69,7 +72,7 @@ class UserAction(object):
         self.mgrpage.click_search_user()
         self.mgrpage.click_save_user()
 
-    def remove_domain_administrator(self,mgrname,username):
+    def remove_domain_administrator(self, mgrname, username):
         with allure.step("给域移除管理员"):
             allure.attach("域名称：%s" % mgrname)
             allure.attach("用户名:%s" % username)
@@ -81,10 +84,14 @@ class UserAction(object):
         self.mgrpage.click_remove_user_button()
         self.mgrpage.click_remove_user_success_button()
 
-
-
-
-    def create_tenant_user(self,tenantname,username,firstname,password,repassword,email):
+    def create_tenant_user(
+            self,
+            tenantname,
+            username,
+            firstname,
+            password,
+            repassword,
+            email):
         """
         在运营部门下创建用户
         :param tenantname:
@@ -117,14 +124,13 @@ class UserAction(object):
         self.a_u_pg.input_email(email)
         self.a_u_pg.click_new_user_save_button()
 
-
         # self.dr.click("xpath -> /html/body/div[@id='addUserModal']/"
         #               "div/div/div/form/table-component/div/table"
         #               "/tbody/tr[@class='ng-scope']/"
         #               "tr[@class='width20 text-center ng-scope']/"
         #               "div[@class='checker']/input[@type='radio']")
 
-    def delete_tenant_user(self,username):
+    def delete_tenant_user(self, username):
         with allure.step("删除运营部门用户"):
             allure.attach("用户名：%s" % username)
         self.a_u_pg.open_authuser()
@@ -138,8 +144,6 @@ class UserAction(object):
         self.a_u_pg.click_user_delete_success_button()
 
 
-
-
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
@@ -150,12 +154,12 @@ if __name__ == '__main__':
     login = Login(dr).login("系统管理员", "123456")
 
     #
-    user =UserAction(dr)
+    user = UserAction(dr)
     #
     # # user.create_user("河南","wuzs0001","wuzs0001","1qaz!QAZ","1qaz!QAZ","wzs@qq.com")
     # user.create_tenant_user("wuzs_auto01", "wuzs_teant_0001", "wuzs_teant_0001", "1qaz!QAZ", "1qaz!QAZ", "wzs@qq.com")
     # user.allocation_domain_administrator("河南","wuzs0001")
-    user.remove_domain_administrator("河南","wuzs_auto_0001")
+    user.remove_domain_administrator("河南", "wuzs_auto_0001")
     sleep(2)
     dr.quit()
     #

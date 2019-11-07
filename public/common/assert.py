@@ -10,15 +10,13 @@
 
 """
 from public.common.log import Log
-from public.common import  Consts
+from public.common import Consts
 import json
 
 
 class Assertions:
     def __init__(self):
         self.log = Log()
-
-
 
     def assert_in_text(self, body, expected_msg):
         """
@@ -33,8 +31,10 @@ class Assertions:
             assert expected_msg in text
             return True
 
-        except:
-            self.log.error("Response body Does not contain expected_msg, expected_msg is %s" % expected_msg)
+        except BaseException:
+            self.log.error(
+                "Response body Does not contain expected_msg, expected_msg is %s" %
+                expected_msg)
             Consts.RESULT_LIST.append('fail')
 
             raise
@@ -50,8 +50,10 @@ class Assertions:
             assert body == expected_msg
             return True
 
-        except:
-            self.log.error("Response body != expected_msg, expected_msg is %s, body is %s" % (expected_msg, body))
+        except BaseException:
+            self.log.error(
+                "Response body != expected_msg, expected_msg is %s, body is %s" %
+                (expected_msg, body))
             Consts.RESULT_LIST.append('fail')
 
             raise
@@ -67,11 +69,15 @@ class Assertions:
             assert flag is True
             return True
 
-        except:
-            self.log.error("Restimeponse  > expected_time, expected_time is %s, time is %s" % (expected_time, time))
+        except BaseException:
+            self.log.error(
+                "Restimeponse  > expected_time, expected_time is %s, time is %s" %
+                (expected_time, time))
             Consts.RESULT_LIST.append('fail')
 
             raise
+
+
 if __name__ == '__main__':
     AS = Assertions()
-    AS.assert_code(203,203)
+    AS.assert_code(203, 203)

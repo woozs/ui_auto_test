@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/25 11:05
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : test_01_create_user.py
 # @Software: PyCharm
 
@@ -16,6 +16,7 @@ from public.appModel import userAction
 from public.pages import sysUorgMgrPage
 from public.appModel.loginAction import Login
 
+
 @allure.feature("用户管理")
 class TestCreateUser(mytest.MyTest):
     """创建用户"""
@@ -25,17 +26,26 @@ class TestCreateUser(mytest.MyTest):
     def test_create_user(self):
 
         login = Login(self.dr)
-        login.login("系统管理员",'123456')
+        login.login("系统管理员", '123456')
 
         datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
         upage = sysUorgMgrPage.SysUorgMgrPage(self.dr)
         ua = userAction.UserAction(self.dr)
 
-        ua.create_user(datas["mgrname"],datas["username"],datas["firstname"],datas["password"],datas["repassword"],datas["email"])
+        ua.create_user(
+            datas["mgrname"],
+            datas["username"],
+            datas["firstname"],
+            datas["password"],
+            datas["repassword"],
+            datas["email"])
         # upage.input_select_user(datas["username"])
-        #查看用户，进行校验
+        # 查看用户，进行校验
         upage.input_select_user(datas["username"])
-        assert self.dr.element_exist("xpath->//span[contains(.,'%s')]"%datas["username"])
+        assert self.dr.element_exist(
+            "xpath->//span[contains(.,'%s')]" %
+            datas["username"])
+
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_01_create_user.py"])

@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/24 8:47
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : resSyncAction.py
 # @Software: PyCharm
 import allure
 
 from time import sleep
-from  public.pages import menuPage
+from public.pages import menuPage
 from public.pages import resSyncPage
 from public.common import log
+
 
 class ResSync(object):
     def __init__(self, driver):
@@ -18,7 +19,7 @@ class ResSync(object):
         self.syncPage = resSyncPage.ResSyncPage(self.dr)
         self.log = log.Log()
 
-    def phy_res_sync(self,reginname,datacenter,*args):
+    def phy_res_sync(self, reginname, datacenter, *args):
         """
         同步物理资源
         :param reginname:
@@ -32,11 +33,11 @@ class ResSync(object):
         self.log.info("同步物理资源")
         self.syncPage.open_ressyncpage()
         self.syncPage.open_osphysicalsyncpage()
-        self.log.info("选择region：%s;"%reginname)
+        self.log.info("选择region：%s;" % reginname)
         sleep(1)
         self.syncPage.click_select_region()
         self.syncPage.select_region(reginname)
-        self.log.info("选择数据中心:%s"%datacenter)
+        self.log.info("选择数据中心:%s" % datacenter)
         self.syncPage.click_select_datacenter()
         self.syncPage.select_data_center(datacenter)
         for DC in args:
@@ -49,9 +50,6 @@ class ResSync(object):
         self.syncPage.click_commit_buttun()
 
 
-
-
-
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
@@ -61,6 +59,6 @@ if __name__ == '__main__':
     dr.max_window()
     login = Login(dr).login("系统管理员", "123456")
 
-    res =ResSync (dr)
+    res = ResSync(dr)
 
-    res.phy_res_sync("河南","111111","DC1","DC2")
+    res.phy_res_sync("河南", "111111", "DC1", "DC2")

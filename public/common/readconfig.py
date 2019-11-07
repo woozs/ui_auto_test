@@ -8,10 +8,12 @@
 import configparser
 import codecs
 
+
 class ReadConfig:
     """
     专门读取配置文件的，.ini文件格式
     """
+
     def __init__(self, filename):
         # configpath = os.path.join(prjDir,filename)
         configpath = filename
@@ -37,5 +39,4 @@ class ReadConfig:
         :param name:project_path
         :return:E:/Python-Project/UItestframework
         """
-        return self.cf.get(env,name)
-
+        return self.cf.get(env, name)

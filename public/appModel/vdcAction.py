@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/10/24 11:34
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : vdcAction.py
 # @Software: PyCharm
 import allure
@@ -11,13 +11,14 @@ from time import sleep
 from public.pages import vdcPage
 from public.common import log
 
+
 class VdcACction(object):
     def __init__(self, driver):
         self.dr = driver
-        self.vdcpage =vdcPage.VdcPage(self.dr)
+        self.vdcpage = vdcPage.VdcPage(self.dr)
         self.log = log.Log()
 
-    def ceate_vdc(self,vdcname):
+    def ceate_vdc(self, vdcname):
         with allure.step("创建VDC"):
             allure.attach("VDC名称：%s" % vdcname)
         self.vdcpage.open_vdc_page()
@@ -27,7 +28,14 @@ class VdcACction(object):
         self.vdcpage.input_vdc_name(vdcname)
         self.vdcpage.click_save_buttun()
 
-    def create_vpool(self,vdcname,vpool_name,resourcetype,typename,datacenter,vpooldesc):
+    def create_vpool(
+            self,
+            vdcname,
+            vpool_name,
+            resourcetype,
+            typename,
+            datacenter,
+            vpooldesc):
         # typename_list =  ["数据中心","集群","主机"]
         #
         # if resourcetype != "虚拟资源" or resourcetype != "裸金属服务器":
@@ -36,10 +44,10 @@ class VdcACction(object):
         #     raise Exception("tyepename 必须是%s"%typename_list)
         with allure.step("创建vpool"):
             allure.attach("vdc：%s" % vdcname)
-            allure.attach("vpool:%s"%vpool_name)
-            allure.attach("资源类型:%s"%resourcetype)
-            allure.attach("类型:%s"%typename)
-            allure.attach("描述:%s"%vpool_name)
+            allure.attach("vpool:%s" % vpool_name)
+            allure.attach("资源类型:%s" % resourcetype)
+            allure.attach("类型:%s" % typename)
+            allure.attach("描述:%s" % vpool_name)
         self.vdcpage.open_vdc_page()
         sleep(0.5)
         self.vdcpage.search_vdc(vdcname)
@@ -61,10 +69,10 @@ class VdcACction(object):
         self.vdcpage.input_vPoolDesc(vpooldesc)
         self.vdcpage.click_save_az_buttun()
 
-    def delete_vpool(self,vdcname,vpoolname):
+    def delete_vpool(self, vdcname, vpoolname):
         with allure.step("删除vpool"):
             allure.attach("vdc：%s" % vdcname)
-            allure.attach("vpool:%s"%vpoolname)
+            allure.attach("vpool:%s" % vpoolname)
         self.vdcpage.open_vdc_page()
         sleep(0.5)
         self.vdcpage.search_vdc(vdcname)
@@ -79,7 +87,7 @@ class VdcACction(object):
         sleep(1)
         self.vdcpage.click_vpool_delete_btn_success()
 
-    def delete_vdc(self,vdcname):
+    def delete_vdc(self, vdcname):
         with allure.step("删除vdc"):
             allure.attach("vdc：%s" % vdcname)
         self.vdcpage.open_vdc_page()
@@ -93,7 +101,6 @@ class VdcACction(object):
         self.vdcpage.click_vpool_delete_btn_success()
 
 
-
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
@@ -103,11 +110,10 @@ if __name__ == '__main__':
     dr.max_window()
     login = Login(dr).login("wuzs_auto_0001", "1qaz!QAZ")
 
-    vdc =VdcACction(dr)
+    vdc = VdcACction(dr)
 
     # vdc.delete_vpool("wuz_svdc_001","wzs_vpool_001")
     vdc.delete_vdc("wuz_svdc_001")
     sleep(5)
 
     dr.quit()
-

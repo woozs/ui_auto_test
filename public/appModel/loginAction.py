@@ -51,8 +51,15 @@ class Login(object):
 #         return self._func(a)
 
 if __name__ == '__main__':
+    import json
     from public.common import pyselenium
     from config import globalparam
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
-    login = Login(dr).login("系统管理员","123456")
+    login = Login(dr).login("上海管理员","1qaz!QAZ")
+    cookies = dr.origin_driver.get_cookies()
+    jsonCookies = json.dumps(cookies)
+    with open('cookies.json', 'w') as f:
+        f.write(jsonCookies)
+
+
