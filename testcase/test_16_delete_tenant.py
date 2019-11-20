@@ -40,6 +40,8 @@ class TestTenantDelete(mytest.MyTest):
         # 搜索运营部门
         tpg.input_secrch_tenant(t_data["tenantname"])
         time.sleep(2)
+        self.dr.wait(5)
+        self._add_image("删除运营部门")
         flag = self.dr.element_exist("id->card")
         assert flag is False
 

@@ -39,6 +39,8 @@ class TestProject(mytest.MyTest):
             p_data["projectdesc"])
         ppg.open_authproject()
         ppg.input_and_search_project(p_data["projectname"])
+        self.dr.wait(5)
+        self._add_image("创建项目")
         text = self.dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")
         # 搜索项目

@@ -45,7 +45,7 @@ class TestCreateEndpoint(mytest.MyTest):
         :return:
         """
 
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[0]
+        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[1]
         self.arn.add_endpoint(
             p_data["regionname"],
             p_data["nodename"],
@@ -53,6 +53,8 @@ class TestCreateEndpoint(mytest.MyTest):
             p_data["url"])
 
         time.sleep(0.5)
+        self.dr.wait(5)
+        self._add_image("VMware创建endpoint")
         text = self.dr.get_text(
             "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert p_data["url"] in text
@@ -66,7 +68,7 @@ class TestCreateEndpoint(mytest.MyTest):
         :return:
         """
 
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[1]
+        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[0]
         self.arn.add_endpoint(
             p_data["regionname"],
             p_data["nodename"],
@@ -74,6 +76,8 @@ class TestCreateEndpoint(mytest.MyTest):
             p_data["url"])
 
         time.sleep(0.5)
+        self.dr.wait(5)
+        self._add_image("openstack创建endpoint")
         text = self.dr.get_text(
             "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert p_data["url"] in text

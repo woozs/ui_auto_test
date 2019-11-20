@@ -10,7 +10,7 @@
 import time
 import pytest
 import allure
-
+from public.common import publicfunction
 from public.common import mytest
 from public.common import datainfo
 from public.appModel import tenantAction
@@ -44,6 +44,7 @@ class TestTeant(mytest.MyTest):
         tpg.input_secrch_tenant(t_data["tenantname"])
         time.sleep(1)
         a = self.dr.get_text("id->card")
+        self._add_image("创建运营部门")
         assert t_data["tenantname"] in a, "%s不在预期结果%s中" % (
             t_data["tenantname"], a)
         assert t_data["linkmanname"]in a, "%s不在预期结果%s中" % (

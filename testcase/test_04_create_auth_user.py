@@ -40,6 +40,8 @@ class TestCreateUser(mytest.MyTest):
         aupg.open_authuser()
 
         aupg.input_select_user(data1s["username"])
+        self.dr.wait(5)
+        self._add_image("创建运营部门下的用户")
         text = self.dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")
 

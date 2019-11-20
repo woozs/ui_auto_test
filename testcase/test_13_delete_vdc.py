@@ -35,6 +35,8 @@ class Test_Vpool_Vdc(mytest.MyTest):
         vdc_pg.search_vdc(p_data["vdcname"])
 
         #         # 校验能查询到
+        self.dr.wait(5)
+        self._add_image("删除VDC")
         flag = self.dr.element_exist("xpath->//td")
         assert flag is False
 

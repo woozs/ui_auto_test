@@ -48,6 +48,8 @@ class TestCreateRegion(mytest.MyTest):
         # time.sleep(2)
         # srmpg.click_region_tree(p_data["regionname"])
         time.sleep(1)
+        self.dr.wait(5)
+        self._add_image("创建资源节点")
         flag = self.dr.element_exist(
             "xpath->//a[contains(text(),'%s')]" %
             p_data["nodename"])

@@ -1,6 +1,7 @@
 #coding=utf-8
 
 import os
+import time
 from public.common.readconfig import ReadConfig
 
 # 读取配置文件
@@ -11,7 +12,7 @@ prj_path = read_config.getValue('projectConfig','project_path')
 # 日志路径
 log_path = os.path.join(prj_path, 'report', 'log')
 # 截图文件路径
-img_path = os.path.join(prj_path, 'report', 'image')
+img_path = os.path.join(prj_path, 'report', 'image',time.strftime("%Y_%m_%d"))
 # 测试报告路径
 report_path = os.path.join(prj_path, 'report', 'testreport')
 # 默认浏览器

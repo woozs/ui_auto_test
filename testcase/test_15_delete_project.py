@@ -35,8 +35,9 @@ class TestProjectDelete(mytest.MyTest):
         pac.delete_project(p_data["projectname"])
         ppg.open_authproject()
         ppg.input_and_search_project(p_data["projectname"])
-
         sleep(1)
+        self.dr.wait(5)
+        self._add_image("删除项目")
         flag = self.dr.element_exist("xpath->//td")
         assert flag is False
 

@@ -15,6 +15,7 @@ from public.common import datainfo
 from public.appModel import userAction
 from public.pages import sysUorgMgrPage
 from public.appModel.loginAction import Login
+from public.common import publicfunction
 
 
 @allure.feature("用户管理")
@@ -42,9 +43,11 @@ class TestCreateUser(mytest.MyTest):
         # upage.input_select_user(datas["username"])
         # 查看用户，进行校验
         upage.input_select_user(datas["username"])
+        self._add_image("创建用户")
         assert self.dr.element_exist(
             "xpath->//span[contains(.,'%s')]" %
             datas["username"])
+
 
 
 if __name__ == "__main__":

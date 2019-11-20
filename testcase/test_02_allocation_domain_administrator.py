@@ -11,6 +11,7 @@ import allure
 from time import sleep
 from public.common import mytest
 from public.common import datainfo
+from public.common import publicfunction
 from public.appModel import userAction
 from public.pages import sysUorgMgrPage
 from public.appModel.loginAction import Login
@@ -36,6 +37,7 @@ class TestAllDomainAdmin(mytest.MyTest):
         sleep(2)
         character = self.dr.get_text(
             "css->.ng-scope:nth-child(4) > .wordBreak")
+        self._add_image("域添加域管理员")
         assert character == "1"
         # self.assertTrue(self.dr.element_exist(""]), "用户未创建成功，请查看日志")
 

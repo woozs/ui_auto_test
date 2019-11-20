@@ -13,6 +13,7 @@ from public.common import datainfo
 from public.appModel import userAction
 from public.pages import sysUorgMgrPage
 from public.appModel.loginAction import Login
+from public.common import publicfunction
 
 
 @allure.feature("用户管理")
@@ -34,10 +35,14 @@ class TestDeleteUser(mytest.MyTest):
         # upage.input_select_user(datas["username"])
         # 查看用户，进行校验
         upage.input_select_user(datas["username"])
+        self.dr.wait(5)
+        self._add_image("移除域管理员")
         flag = self.dr.element_exist(
             "xpath->//span[contains(.,'%s')]" %
             datas["username"])
         assert flag is flag, "用户删除成功，请查看日志"
+
+
 
 
 if __name__ == "__main__":

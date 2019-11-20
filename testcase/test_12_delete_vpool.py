@@ -37,7 +37,8 @@ class Test_Vpool_Delete(mytest.MyTest):
         time.sleep(1)
         vdc_pg.search_vpool(p_data["vpoolname"])
         # 校验能查询到
-
+        self.dr.wait(5)
+        self._add_image("删除VPOOL")
         flag = self.dr.element_exist("xpath->//td")
         assert flag is False
 

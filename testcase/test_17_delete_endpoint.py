@@ -61,6 +61,8 @@ class TestDeleteEndpoint(mytest.MyTest):
         # self.srmpg.click_tree_res_service(p_data["servicename"])
         # time.sleep(0.5)
         time.sleep(1)
+        self.dr.wait(5)
+        self._add_image("VMware删除endpint")
         flag = self.dr.element_exist(
             "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert flag is False
@@ -89,6 +91,8 @@ class TestDeleteEndpoint(mytest.MyTest):
         # self.srmpg.click_tree_res_service(p_data["servicename"])
         # time.sleep(0.5)
         time.sleep(1)
+        self.dr.wait(5)
+        self._add_image("openstack删除endpoint")
         flag = self.dr.element_exist(
             "xpath->//table[@id='accessPoint']/tbody/tr[2]")
         assert flag is False

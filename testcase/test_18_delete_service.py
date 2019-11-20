@@ -51,7 +51,8 @@ class TestDeleteService(mytest.MyTest):
         # self.srmpg.click_region_tree(p_data["regionname"])
         # self.srmpg.click_tree_res_node(p_data["nodename"])
         # self.srmpg.click_tree_res_node_i(p_data["nodename"])
-
+        self.dr.wait(5)
+        self._add_image("删除VMware服务")
         flag = self.dr.element_exist(
             "xpath->(//a[contains(text(),'%s')])" %
             p_data["servicename"])
@@ -68,7 +69,8 @@ class TestDeleteService(mytest.MyTest):
             p_data["servicename"])
 
         self.srmpg.open_sys_regionMgr_page()
-
+        self.dr.wait(5)
+        self._add_image("删除openstack服务")
         flag = self.dr.element_exist(
             "xpath->(//a[contains(text(),'%s')])" %
             p_data["servicename"])

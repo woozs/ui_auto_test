@@ -37,7 +37,8 @@ class TestDeleteRegion(mytest.MyTest):
         arn.delete_res_node(p_data["regionname"], p_data["nodename"])
         # text = self.dr.get_text("xpath->//div[@class='box-body']/table-component/div/table/tbody")
         # 搜索项目
-
+        self.dr.wait(5)
+        self._add_image("删除资源节点")
         srmpg.open_sys_regionMgr_page()
         flag = self.dr.element_exist(
             "xpath->//a[contains(text(),'%s')]" %

@@ -49,6 +49,8 @@ class TestCreateService(mytest.MyTest):
             p_data["username"],
             p_data["passwrd"])
         # 校验
+        self.dr.wait(5)
+        self._add_image("创建VMware服务")
         self.srmpg.open_sys_regionMgr_page()
         # time.sleep(1)
         # self.srmpg.click_region_tree(p_data["regionname"])
@@ -74,7 +76,8 @@ class TestCreateService(mytest.MyTest):
             p_data["passwrd"])
         # 校验
         self.srmpg.open_sys_regionMgr_page()
-
+        self.dr.wait(5)
+        self._add_image("创建opentack服务")
         flag = self.dr.element_exist(
             "xpath->(//a[contains(text(),'%s')])" %
             p_data["servicename"])

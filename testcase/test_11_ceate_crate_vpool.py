@@ -46,7 +46,8 @@ class TestCreateVpool(mytest.MyTest):
         time.sleep(1)
         vdc_pg.search_vpool(p_data["vpoolname"])
         # 校验能查询到
-
+        self.dr.wait(5)
+        self._add_image("创建VPOOL")
         text = self.dr.get_text("xpath->//td")
         assert p_data["vpoolname"] in text
 

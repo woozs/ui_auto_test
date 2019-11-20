@@ -20,7 +20,7 @@ from public.appModel.loginAction import Login
 class TestCreateVDC(mytest.MyTest):
     """测试创建VDC"""
 
-    @allure.story("创建")
+    @allure.story("创建vdc")
     @pytest.mark.flaky(reruns=3)
     def test_create_vdc(self):
         vdc_a = vdcAction.VdcACction(self.dr)
@@ -33,9 +33,12 @@ class TestCreateVDC(mytest.MyTest):
         vdc_pg.open_vdc_page()
         vdc_pg.search_vdc(p_data["vdcname"])
         # 校验能查询到
+        self.dr.wait(5)
+        self._add_image("创建vdc")
         text = self.dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")
         assert p_data["vdcname"] in text
+
 
 
 if __name__ == "__main__":

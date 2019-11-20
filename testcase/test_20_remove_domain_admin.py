@@ -34,6 +34,8 @@ class TestRemoveDomainAdmin(mytest.MyTest):
         upage.open_uorgmgrpage()
         upage.input_select_user(datas["username"])
         sleep(2)
+        self.dr.wait(5)
+        self._add_image("移除域管理员")
         character = self.dr.get_text(
             "css->.ng-scope:nth-child(4) > .wordBreak")
         assert character == "0"

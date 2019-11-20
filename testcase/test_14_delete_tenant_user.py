@@ -35,6 +35,8 @@ class TestDeleteUser(mytest.MyTest):
         aupg.open_authuser()
 
         aupg.input_select_user(data1s["username"])
+        self.dr.wait(5)
+        self._add_image("删除运营部门下的用户")
         flag = self.dr.element_exist("xpath->//td")
         assert flag is False
 
