@@ -41,12 +41,9 @@ class TestCreateRegion(mytest.MyTest):
             platform=p_data["platform"],
             virtual_type=p_data["virtual_type"],
             regDesc=p_data["regDesc"])
-        # text = self.dr.get_text("xpath->//div[@class='box-body']/table-component/div/table/tbody")
-        # 搜索项目
+
 
         srmpg.open_sys_regionMgr_page()
-        # time.sleep(2)
-        # srmpg.click_region_tree(p_data["regionname"])
         time.sleep(1)
         self.dr.wait(5)
         self._add_image("创建资源节点")

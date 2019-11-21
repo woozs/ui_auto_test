@@ -42,11 +42,11 @@ if __name__ == '__main__':
 
     # 定义测试集
     args = ['-s', '-q', '--alluredir', xml_report_path]
-    # args = ['-s', '-q', '--alluredir', "H:\\api_auto_test\\Report\xml"]
     pytest.main(args)
     cmd = 'allure generate %s -o %s  --clean' % (
         xml_report_path, html_report_path)
     log.info("执行allure，生成测试报告")
+    log.debug(cmd)
     try:
         shell.invoke(cmd)
     except Exception:

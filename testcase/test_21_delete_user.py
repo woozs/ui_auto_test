@@ -42,8 +42,5 @@ class TestDeleteUser(mytest.MyTest):
             datas["username"])
         assert flag is flag, "用户删除成功，请查看日志"
 
-
-
-
 if __name__ == "__main__":
     pytest.main(["-s", "test_21_delete_user.py"])

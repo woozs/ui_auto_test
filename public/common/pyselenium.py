@@ -6,6 +6,8 @@
 # @Software: PyCharm
 
 import time
+import os
+from config import globalparam
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
@@ -39,9 +41,13 @@ class PySelenium(object):
             'version': '',
             'javascriptEnabled': True}
         dr = None
+        #设置日志路径
+        geckodriver_log_path = globalparam.log_path
+        logname_geckodriver = os.path.join(geckodriver_log_path, 'geckodriver_' + '{0}.log'.format(
+            time.strftime('%Y-%m-%d')))
         if remoteAddress is None:
             if browser == "firefox" or browser == "ff":
-                dr = webdriver.Firefox()
+                dr = webdriver.Firefox(service_log_path= logname_geckodriver)
             elif browser == "chrome" or browser == "Chrome":
                 dr = webdriver.Chrome()
             elif browser == "internet explorer" or browser == "ie":

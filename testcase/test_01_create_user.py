@@ -15,8 +15,6 @@ from public.common import datainfo
 from public.appModel import userAction
 from public.pages import sysUorgMgrPage
 from public.appModel.loginAction import Login
-from public.common import publicfunction
-
 
 @allure.feature("用户管理")
 class TestCreateUser(mytest.MyTest):

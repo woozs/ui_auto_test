@@ -39,8 +39,6 @@ class TestRemoveDomainAdmin(mytest.MyTest):
         character = self.dr.get_text(
             "css->.ng-scope:nth-child(4) > .wordBreak")
         assert character == "0"
-        #
-        # self.assertTrue(self.dr.element_exist(""]), "用户未创建成功，请查看日志")
 
 
 if __name__ == "__main__":
