@@ -23,8 +23,7 @@ class TestTenantDelete(mytest.MyTest):
     @pytest.mark.flaky(reruns=3)
     def test_delete_tenant(self):
         login = Login(self.dr)
-        t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")[0]
-
+        t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")["创建运营部门"]
         tpg = authTenantPage.AuthTenantPage(self.dr)
         ta = tenantAction.TenantAction(self.dr)
         # login.login("wuzs0001","1qaz!QAZ")
@@ -33,7 +32,7 @@ class TestTenantDelete(mytest.MyTest):
         try:
             ta.remove_post(t_data["tenantname"])
         except BaseException:
-            print("移除用户失败，请确认是否该岗位未关联用户")
+            self.logger.error("移除用户失败，请确认是否该岗位未关联用户")
         ta.delete_tenant(t_data["tenantname"])
 
         tpg.open_authtenant()

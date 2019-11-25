@@ -7,7 +7,10 @@
 # @Software: PyCharm
 import pytest
 import allure
+
+from time import sleep
 from public.common import mytest
+from public.pages import loginPage
 from public.appModel import loginAction
 
 
@@ -19,8 +22,11 @@ class TestLoin(mytest.MyTest):
     @allure.story("系统管理员登录系统")
     @pytest.mark.flaky(reruns=3)
     def test_login(self):
+        loginpj = loginPage.LoginPage(self.dr)
         login = loginAction.Login(self.dr)
         login.login("系统管理员","123456")
+        sleep(0.5)
+        loginpj.click_loginbutton()
         self.dr.wait(5)
         self._add_image("系统管理员登录系统后")
         flag = self.dr.element_exist("xpath->//div[3]/div[3]/span")

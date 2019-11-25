@@ -26,14 +26,13 @@ class TestDeleteRegion(mytest.MyTest):
     def test_delete_region(self):
 
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")["创建资源节点"]
 
         arn = resNodeAction.Add_Res_Node(self.dr)
         srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
         # login.login("wuzs0001","1qaz!QAZ")
         login.login(datas["username"], datas["password"])
-
         arn.delete_res_node(p_data["regionname"], p_data["nodename"])
         # text = self.dr.get_text("xpath->//div[@class='box-body']/table-component/div/table/tbody")
         # 搜索项目

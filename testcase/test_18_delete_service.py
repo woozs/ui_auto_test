@@ -32,7 +32,7 @@ class TestDeleteService(mytest.MyTest):
         self.dr = pyselenium.PySelenium(globalparam.browser)
         self.dr.max_window()
         self.login = Login(self.dr)
-        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
+        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
         self.login.login(self.datas["username"], self.datas["password"])
         self.arn = resNodeAction.Add_Res_Node(self.dr)
         self.srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
@@ -40,7 +40,9 @@ class TestDeleteService(mytest.MyTest):
     @allure.story("删除VMware服务")
     @pytest.mark.flaky(reruns=3)
     def test_delete_service_vmware(self):
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "vmwareapi")[0]
+        p_data = datainfo.get_xls_to_dict(
+            "res_node_data.xlsx",
+            "vmwareapi")["创建service-vmware"]
         self.arn.delete_service(
             p_data["regionname"],
             p_data["nodename"],
@@ -62,7 +64,7 @@ class TestDeleteService(mytest.MyTest):
     @pytest.mark.flaky(reruns=3)
     def test_delete_service_openstack(self):
         p_data = datainfo.get_xls_to_dict(
-            "res_node_data.xlsx", "openstackapi")[0]
+            "res_node_data.xlsx", "openstackapi")["创建service-keystone"]
         self.arn.delete_service(
             p_data["regionname"],
             p_data["nodename"],

@@ -447,6 +447,18 @@ class PySelenium(object):
             "{0} Refresh the current page, Spend {1} seconds".format(
                 success, time.time() - t1))
 
+    def ESC(self):
+        """
+        send esc key
+        :return:
+        """
+        t1 = time
+        self.driver.send_keys(Keys.ESCAPE)
+        self.my_print(
+            "{0} send the key esc, Spend {1} seconds".format(
+                success, time.time() - t1))
+
+
     def js(self, script):
         """
         Execute JavaScript scripts.

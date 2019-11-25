@@ -27,7 +27,7 @@ class TestDeleteUser(mytest.MyTest):
         login = Login(self.dr)
         login.login("系统管理员", '123456')
 
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
         upage = sysUorgMgrPage.SysUorgMgrPage(self.dr)
         ua = userAction.UserAction(self.dr)
         ua.delete_user(datas["username"])

@@ -13,6 +13,7 @@
 """
 
 import subprocess
+import chardet
 
 
 class Shell:
@@ -20,5 +21,9 @@ class Shell:
     def invoke(cmd):
         output, errors = subprocess.Popen(
             cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
-        o = output.decode("utf-8")
+        adchar = chardet.detect(output)
+        if adchar["encoding"] == "GB2312":
+            o = output.decode("gbk")
+        else:
+            o = output.decode('utf-8')
         return o

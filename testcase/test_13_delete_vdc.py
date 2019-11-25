@@ -26,7 +26,7 @@ class Test_Vpool_Vdc(mytest.MyTest):
         vdc_a = vdcAction.VdcACction(self.dr)
         vdc_pg = vdcPage.VdcPage(self.dr)
 
-        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "Sheet1")[0]
+        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vdc")["创建vdc"]
 
         self.login.login("系统管理员", "123456")
         vdc_a.delete_vdc(p_data["vdcname"])

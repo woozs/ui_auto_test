@@ -24,8 +24,8 @@ class TestCreateUser(mytest.MyTest):
     def test_create_authuser(self):
 
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        data1s = datainfo.get_xls_to_dict("user.xlsx", "authuser")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        data1s = datainfo.get_xls_to_dict("user.xlsx", "authuser")["创建运营部门用户"]
         aupg = authUserPage.AuthUsertPage(self.dr)
         ta = userAction.UserAction(self.dr)
         # t_data = datainfo.get_xls_to_dict("tenantdata.xlsx","Sheet1")[0]

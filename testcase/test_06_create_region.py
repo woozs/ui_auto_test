@@ -26,8 +26,8 @@ class TestCreateRegion(mytest.MyTest):
     def test_create_region(self):
 
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")["创建资源节点"]
 
         arn = resNodeAction.Add_Res_Node(self.dr)
         srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)

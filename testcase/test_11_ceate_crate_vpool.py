@@ -27,8 +27,8 @@ class TestCreateVpool(mytest.MyTest):
         vdc_a = vdcAction.VdcACction(self.dr)
         vdc_pg = vdcPage.VdcPage(self.dr)
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "Sheet1")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vpool")["创建vpool"]
         login.login(datas["username"], datas["password"])
         vdc_a.create_vpool(
             p_data["vdcname"],

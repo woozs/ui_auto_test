@@ -23,8 +23,8 @@ class TestPhySunc(mytest.MyTest):
     @allure.story("同步物理资源")
     @pytest.mark.flaky(reruns=3)
     def test_sync_phy_res(self):
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("phy_sync_data.xlsx", "Sheet1")["物理资源同步"]
 
         self.login.login(datas["username"], datas["password"])
         sync_a = resSyncAction.ResSync(self.dr)
@@ -42,7 +42,6 @@ class TestPhySunc(mytest.MyTest):
         sync_pg.click_refresh_button()
         status1 = self.dr.get_text(
             "xpath->//td[contains(.,'DC1')]/../td[3]").strip()
-
         count1 = 0
         while status1 == "执行中":
             time.sleep(10)
@@ -69,7 +68,6 @@ class TestPhySunc(mytest.MyTest):
         self.dr.wait(5)
         self._add_image("同步物理资源-DC2")
         assert status2 == "执行成功"
-
 
 
 if __name__ == "__main__":

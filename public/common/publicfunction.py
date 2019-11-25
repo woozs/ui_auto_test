@@ -7,6 +7,7 @@
 
 import os
 import time
+import allure
 from config import globalparam
 
 
@@ -21,8 +22,19 @@ def get_img(dr, filename):
 
     return path
 
+def add_image(dr,filename):
+    image_tmp = get_img(dr, filename)
+    with  open(image_tmp, mode='rb') as f:
+        file = f.read()
+        allure.attach(file, filename, allure.attachment_type.PNG)
 
 
+def is_Chinese(char):
+    for i in char:
+        if u'\u4e00' <= i <= u'\u9fff':
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':

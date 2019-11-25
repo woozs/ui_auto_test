@@ -26,8 +26,8 @@ class TestCreateVDC(mytest.MyTest):
         vdc_a = vdcAction.VdcACction(self.dr)
         vdc_pg = vdcPage.VdcPage(self.dr)
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "Sheet1")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vdc")["创建vdc"]
         login.login(datas["username"], datas["password"])
         vdc_a.ceate_vdc(p_data["vdcname"])
         vdc_pg.open_vdc_page()
@@ -38,7 +38,6 @@ class TestCreateVDC(mytest.MyTest):
         text = self.dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")
         assert p_data["vdcname"] in text
-
 
 
 if __name__ == "__main__":

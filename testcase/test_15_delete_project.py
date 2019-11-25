@@ -24,8 +24,8 @@ class TestProjectDelete(mytest.MyTest):
     def test_delete_project(self):
 
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")[0]
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]
 
         ppg = authProjectPage.AuthProjectPage(self.dr)
         pac = projectAction.PojectAction(self.dr)

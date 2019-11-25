@@ -11,6 +11,7 @@ from time import sleep
 from public.pages import menuPage
 from public.pages import resSyncPage
 from public.common import log
+from public.common import publicfunction
 
 
 class ResSync(object):
@@ -48,6 +49,13 @@ class ResSync(object):
         sleep(1)
         # self.syncPage.switch_commit_page()
         self.syncPage.click_commit_buttun()
+        commit_button_flag = self.syncPage.is_exists_commit_buttun()
+        if commit_button_flag is True:
+            commit_button_element = self.syncPage.commit_buttun_element().is_displayed()
+            print(commit_button_element)
+            publicfunction.add_image(self.dr, "物理资源无法同步")
+            self.dr.ESC()
+            sleep(60)
 
 
 if __name__ == '__main__':
@@ -60,5 +68,4 @@ if __name__ == '__main__':
     login = Login(dr).login("系统管理员", "123456")
 
     res = ResSync(dr)
-
-    res.phy_res_sync("河南", "111111", "DC1", "DC2")
+    res.phy_res_sync("", "111111", "DC1", "DC2")

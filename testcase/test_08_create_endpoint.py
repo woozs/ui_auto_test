@@ -31,7 +31,7 @@ class TestCreateEndpoint(mytest.MyTest):
         self.dr = pyselenium.PySelenium(globalparam.browser)
         self.dr.max_window()
         self.login = Login(self.dr)
-        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
+        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
         self.login.login(self.datas["username"], self.datas["password"])
         self.arn = resNodeAction.Add_Res_Node(self.dr)
         self.srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
@@ -45,7 +45,8 @@ class TestCreateEndpoint(mytest.MyTest):
         :return:
         """
 
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[1]
+        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[
+            "创建vmware-endpoint"]
         self.arn.add_endpoint(
             p_data["regionname"],
             p_data["nodename"],
@@ -67,8 +68,8 @@ class TestCreateEndpoint(mytest.MyTest):
         依赖已添加openstack服务
         :return:
         """
-
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "endpoint")[0]
+        p_data = datainfo.get_xls_to_dict(
+            "res_node_data.xlsx", "endpoint")["创建os-l-endpoint"]
         self.arn.add_endpoint(
             p_data["regionname"],
             p_data["nodename"],

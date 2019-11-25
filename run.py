@@ -42,8 +42,8 @@ if __name__ == '__main__':
 
     # 定义测试集
     args = ['-s', '-q', '--alluredir', xml_report_path]
-    pytest.main(args)
-    cmd = 'allure generate %s -o %s  --clean' % (
+    # pytest.main(args)
+    cmd = 'allure generate %s -o %s ' % (
         xml_report_path, html_report_path)
     log.info("执行allure，生成测试报告")
     log.debug(cmd)
@@ -51,5 +51,14 @@ if __name__ == '__main__':
         shell.invoke(cmd)
     except Exception:
         log.error('执行用例失败，请检查环境配置')
+        raise
+    #解决历史趋势中无数据问题
+    report_history_path = html_report_path+"\\history"
+    result_history_path = xml_report_path+"\\history"
+    copy_cmd = 'xcopy %s %s  /e /Y /I'%(report_history_path,result_history_path)
+    try:
+        shell.invoke(copy_cmd)
+    except Exception:
+        log.error('复制文件失败，请查看')
         raise
     print("报告已生成，请查看")

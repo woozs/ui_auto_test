@@ -27,9 +27,8 @@ class TestTeant(mytest.MyTest):
     def test_create(self):
 
         login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
-        t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")[0]
-
+        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+        t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")["创建运营部门"]
         tpg = authTenantPage.AuthTenantPage(self.dr)
         ta = tenantAction.TenantAction(self.dr)
         # login.login("wuzs0001","1qaz!QAZ")

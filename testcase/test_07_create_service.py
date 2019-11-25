@@ -32,7 +32,7 @@ class TestCreateService(mytest.MyTest):
         self.dr = pyselenium.PySelenium(globalparam.browser)
         self.dr.max_window()
         self.login = Login(self.dr)
-        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")[0]
+        self.datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
         self.login.login(self.datas["username"], self.datas["password"])
         self.arn = resNodeAction.Add_Res_Node(self.dr)
         self.srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
@@ -40,7 +40,9 @@ class TestCreateService(mytest.MyTest):
     @allure.story("创建VMware服务")
     @pytest.mark.flaky(reruns=5)
     def test_create_service_vmware(self):
-        p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "vmwareapi")[0]
+        p_data = datainfo.get_xls_to_dict(
+            "res_node_data.xlsx",
+            "vmwareapi")["创建service-vmware"]
         self.arn.add_resource_service_node_vmware(
             p_data["regionname"],
             p_data["nodename"],
@@ -66,7 +68,7 @@ class TestCreateService(mytest.MyTest):
     @pytest.mark.flaky(reruns=5)
     def test_create_service_openstack(self):
         p_data = datainfo.get_xls_to_dict(
-            "res_node_data.xlsx", "openstackapi")[0]
+            "res_node_data.xlsx", "openstackapi")["创建service-keystone"]
         self.arn.add_resource_service_node_vmware(
             p_data["regionname"],
             p_data["nodename"],

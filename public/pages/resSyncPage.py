@@ -49,6 +49,10 @@ class ResSyncPage(basepage.Page):
     def click_commit_buttun(self):
         self.dr.click("xpath->//button[contains(.,'确定')]")
         # self.dr.click("css->.modal-footer:nth-child(3) > .btn-warning")
+    def commit_buttun_element(self):
+        self.dr.get_element("xpath->//button[contains(.,'确定')]")
+    def is_exists_commit_buttun(self):
+        self.dr.element_exist("xpath->//button[contains(.,'确定')]")
 
     def switch_commit_page(self):
         self.dr.switch_to_frame("id->syncModal")

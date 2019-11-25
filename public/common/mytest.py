@@ -35,7 +35,4 @@ class MyTest():
             '###############################  End  ###############################')
 
     def _add_image(self,filename):
-        image_tmp = publicfunction.get_img(self.dr, filename)
-        with  open(image_tmp, mode='rb') as f:
-            file = f.read()
-            allure.attach(file, filename, allure.attachment_type.PNG)
+        publicfunction.add_image(self.dr,filename)
