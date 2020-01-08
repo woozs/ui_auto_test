@@ -6,32 +6,22 @@
 # @File    : test_00_login.py
 # @Software: PyCharm
 import pytest
-import allure
+from  public.common.publicfunction import *
 
-from time import sleep
-from public.common import mytest
-from public.pages import loginPage
-from public.appModel import loginAction
-
-
-
+#前置条件，打开浏览器，在这个测试套下全局有效,实现在conftest.py，每个测试测试套下只打开一次浏览器
+#此部分相当于setupclasss，每个测试类的setup
 @allure.feature("登录模块")
-class TestLoin(mytest.MyTest):
+class TestLoin():
     """登录测试"""
-
     @allure.story("系统管理员登录系统")
+    @allure.severity(allure.severity_level.BLOCKER)
     @pytest.mark.flaky(reruns=3)
-    def test_login(self):
-        loginpj = loginPage.LoginPage(self.dr)
-        login = loginAction.Login(self.dr)
-        login.login("系统管理员","123456")
-        sleep(0.5)
-        loginpj.click_loginbutton()
-        self.dr.wait(5)
-        self._add_image("系统管理员登录系统后")
-        flag = self.dr.element_exist("xpath->//div[3]/div[3]/span")
+    def test_login(self,login_admin):
+        dr = login_admin
+        dr.wait(5)
+        flag = dr.element_exist("xpath->//div[3]/div[3]/span")
         assert flag
-
+        add_image(dr,"系统管理员登录系统")
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_00_login.py"])

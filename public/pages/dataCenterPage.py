@@ -5,7 +5,7 @@
 # @Site    : 
 # @File    : dataCenterPage.py
 # @Software: PyCharm
-from public.common import basepage
+from public.pages import basepage
 from config import globalparam
 
 class DataCenterPage(basepage.Page):
@@ -100,9 +100,11 @@ class DataCenterPage(basepage.Page):
     
     #保存
     def click_save_phy_net_button(self):
+        self.log.debug("点击保存按钮")
         self.dr.click("xpath->(//button[@type='submit'])[2]")
 
     #取消
     def click_cancel_phy_net_button(self):
+        self.log.debug("点击确定取消")
         self.dr.click("xpath->//div[@id='net_modal']/form/div[3]/button[2]")
 

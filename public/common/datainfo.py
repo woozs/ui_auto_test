@@ -33,8 +33,6 @@ def get_xls_to_dict(xlsname, sheetname):
     result = dict(zip(keys, result1))
     return result
 
-
-
 def get_url_data(title):
     """
     读取txt文件，转化成dict;读取url和导航栏的对应关系

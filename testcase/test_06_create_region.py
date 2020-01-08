@@ -10,30 +10,23 @@ import pytest
 import time
 import allure
 
-from public.common import mytest
+from public.common.publicfunction import *
 from public.common import datainfo
-from public.appModel import resNodeAction
+from public.appmodel import resnodeaction
 from public.pages import sys_regionMgrPage
-from public.appModel.loginAction import Login
 
 
 @allure.feature("资源节点管理")
-class TestCreateRegion(mytest.MyTest):
+class TestCreateRegion():
     """测试添加资源节点"""
 
     @allure.story("创建资源节点")
     @pytest.mark.flaky(reruns=3)
-    def test_create_region(self):
-
-        login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+    def test_create_region(self,login_domain):
+        dr = login_domain
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")["创建资源节点"]
-
-        arn = resNodeAction.Add_Res_Node(self.dr)
-        srmpg = sys_regionMgrPage.SysRegionMgrPage(self.dr)
-        # login.login("wuzs0001","1qaz!QAZ")
-        login.login(datas["username"], datas["password"])
-
+        arn = resnodeaction.Add_Res_Node(dr)
+        srmpg = sys_regionMgrPage.SysRegionMgrPage(dr)
         arn.add_res_node(
             p_data["regionname"],
             p_data["nodename"],
@@ -42,12 +35,11 @@ class TestCreateRegion(mytest.MyTest):
             virtual_type=p_data["virtual_type"],
             regDesc=p_data["regDesc"])
 
-
         srmpg.open_sys_regionMgr_page()
         time.sleep(1)
-        self.dr.wait(5)
-        self._add_image("创建资源节点")
-        flag = self.dr.element_exist(
+        dr.wait(5)
+        add_image(dr,"创建资源节点")
+        flag = dr.element_exist(
             "xpath->//a[contains(text(),'%s')]" %
             p_data["nodename"])
         assert flag, "未查询到资源节点%s" % p_data["nodename"]

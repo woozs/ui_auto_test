@@ -3,7 +3,7 @@
 # @Time    : 2019/11/6 15:45
 # @Author  : mrwuzs
 # @Site    :
-# @File    : phyNetworkResAction.py
+# @File    : phynetworkresaction.py
 # @Software: PyCharm
 
 import allure
@@ -11,10 +11,10 @@ import allure
 from time import sleep
 from public.pages import dataCenterPage
 from public.common import log
-from public.appModel import dataCenterAction
+from public.appmodel import datacenteraction
 
 
-class PhyNetworkResAction(dataCenterAction.DataCenterAction):
+class PhyNetworkResAction(datacenteraction.DataCenterAction):
     @allure.step("创建物理网络")
     def create_pht_netwok(
             self,

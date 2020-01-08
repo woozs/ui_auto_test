@@ -29,7 +29,7 @@ class PySelenium(object):
     making it easier to use.
     """
 
-    def __init__(self, browser='ff', remoteAddress=None):
+    def __init__(self, browser='ff', headless=False, remoteAddress=None):
         """
         remote consle：
         dr = PySelenium('RChrome','127.0.0.1:8080')
@@ -41,15 +41,31 @@ class PySelenium(object):
             'version': '',
             'javascriptEnabled': True}
         dr = None
-        #设置日志路径
+        # 设置日志路径
         geckodriver_log_path = globalparam.log_path
-        logname_geckodriver = os.path.join(geckodriver_log_path, 'geckodriver_' + '{0}.log'.format(
-            time.strftime('%Y-%m-%d')))
+        logname_geckodriver = os.path.join(
+            geckodriver_log_path, 'geckodriver_' + '{0}.log'.format(
+                time.strftime('%Y-%m-%d')))
         if remoteAddress is None:
             if browser == "firefox" or browser == "ff":
-                dr = webdriver.Firefox(service_log_path= logname_geckodriver)
+                if headless:
+                    firfox_option = webdriver.FirefoxOptions()
+                    firfox_option.add_argument("--headless")  # 设置火狐为headless无界面模式
+                    firfox_option.add_argument("--disable-gpu")
+                    dr = webdriver.Firefox(
+                        service_log_path=logname_geckodriver,
+                        options=firfox_option)
+                else:
+                    dr = webdriver.Firefox(
+                        service_log_path=logname_geckodriver)
             elif browser == "chrome" or browser == "Chrome":
-                dr = webdriver.Chrome()
+                if headless:
+                    chrome_options = webdriver.ChromeOptions()
+                    chrome_options.add_argument("--headless")# 设置chrome为headless无界面模式
+                    chrome_options.add_argument("--disable-gpu")
+                    dr = webdriver.Chrome(chrome_options=chrome_options)
+                else:
+                    dr = webdriver.Chrome()
             elif browser == "internet explorer" or browser == "ie":
                 dr = webdriver.Ie()
             elif browser == "opera":
@@ -452,12 +468,11 @@ class PySelenium(object):
         send esc key
         :return:
         """
-        t1 = time
-        self.driver.send_keys(Keys.ESCAPE)
+        t1 = time.time()
+        ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
         self.my_print(
             "{0} send the key esc, Spend {1} seconds".format(
                 success, time.time() - t1))
-
 
     def js(self, script):
         """

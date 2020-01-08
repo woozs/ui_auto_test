@@ -8,12 +8,11 @@
 import json
 from public.common import pyselenium
 from config import globalparam
-from public.appModel.loginAction import Login
+from public.appmodel.loginaction import Login
 cookie_path = globalparam.cookie_path + "\\cookies.json"
 
 
 def get_cookie(username, password):
-
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
     Login(dr).login(username, password)
@@ -40,4 +39,4 @@ def add_cookie(dr):
 
 
 if __name__ == '__main__':
-    get_cookie("上海管理员", "1qaz!QAZ")
+    get_cookie("系统管理员", "123456")

@@ -9,33 +9,31 @@
 import pytest
 import allure
 
-from public.common import mytest
+from public.common.publicfunction import *
 from public.common import datainfo
-from public.appModel import vdcAction
+from public.appmodel import vdcaction
 from public.pages import vdcPage
-from public.appModel.loginAction import Login
+from public.appmodel.loginaction import Login
 
 
 @allure.feature("VDC管理")
-class TestCreateVDC(mytest.MyTest):
+class TestCreateVDC():
     """测试创建VDC"""
 
     @allure.story("创建vdc")
     @pytest.mark.flaky(reruns=3)
-    def test_create_vdc(self):
-        vdc_a = vdcAction.VdcACction(self.dr)
-        vdc_pg = vdcPage.VdcPage(self.dr)
-        login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+    def test_create_vdc(self,login_domain):
+        dr = login_domain
+        vdc_a = vdcaction.VdcACction(dr)
+        vdc_pg = vdcPage.VdcPage(dr)
         p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vdc")["创建vdc"]
-        login.login(datas["username"], datas["password"])
         vdc_a.ceate_vdc(p_data["vdcname"])
         vdc_pg.open_vdc_page()
         vdc_pg.search_vdc(p_data["vdcname"])
         # 校验能查询到
-        self.dr.wait(5)
-        self._add_image("创建vdc")
-        text = self.dr.get_text(
+        dr.wait(5)
+        add_image(dr,"创建vdc")
+        text = dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")
         assert p_data["vdcname"] in text
 

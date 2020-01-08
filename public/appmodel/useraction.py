@@ -3,7 +3,7 @@
 # @Time    : 2019/10/24 15:19
 # @Author  : mrwuzs
 # @Site    :
-# @File    : userAction.py
+# @File    : useraction.py
 # @Software: PyCharm
 import allure
 
@@ -81,8 +81,11 @@ class UserAction(object):
         self.mgrpage.click_general_post()
         self.mgrpage.click_user_buttun()
         self.mgrpage.input_and_search_user(username)
-        self.mgrpage.click_remove_user_button()
-        self.mgrpage.click_remove_user_success_button()
+        try:
+            self.mgrpage.click_remove_user_button()
+            self.mgrpage.click_remove_user_success_button()
+        except  ValueError as e:
+            self.log.error(e)
 
     def create_tenant_user(
             self,
@@ -147,7 +150,7 @@ class UserAction(object):
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
-    from public.appModel.loginAction import Login
+    from public.appmodel.loginaction import Login
 
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()

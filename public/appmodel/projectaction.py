@@ -3,7 +3,7 @@
 # @Time    : 2019/10/25 10:07
 # @Author  : mrwuzs
 # @Site    :
-# @File    : projectAction.py
+# @File    : projectaction.py
 # @Software: PyCharm
 import allure
 
@@ -52,7 +52,7 @@ class PojectAction(object):
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
-    from public.appModel.loginAction import Login
+    from public.appmodel.loginaction import Login
 
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()

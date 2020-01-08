@@ -3,12 +3,10 @@
 # @Time    : 2019/11/6 16:15
 # @Author  : mrwuzs
 # @Site    :
-# @File    : dataCenterAction.py
+# @File    : datacenteraction.py
 # @Software: PyCharm
 
 import allure
-
-from time import sleep
 from public.pages import dataCenterPage
 from public.common import log
 

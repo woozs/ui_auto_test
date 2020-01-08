@@ -3,7 +3,7 @@
 # @Time    : 2019/10/24 8:47
 # @Author  : mrwuzs
 # @Site    :
-# @File    : resSyncAction.py
+# @File    : ressyncaction.py
 # @Software: PyCharm
 import allure
 
@@ -49,10 +49,9 @@ class ResSync(object):
         sleep(1)
         # self.syncPage.switch_commit_page()
         self.syncPage.click_commit_buttun()
+        sleep(1)
         commit_button_flag = self.syncPage.is_exists_commit_buttun()
         if commit_button_flag is True:
-            commit_button_element = self.syncPage.commit_buttun_element().is_displayed()
-            print(commit_button_element)
             publicfunction.add_image(self.dr, "物理资源无法同步")
             self.dr.ESC()
             sleep(60)
@@ -61,11 +60,10 @@ class ResSync(object):
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
-    from public.appModel.loginAction import Login
+    from public.appmodel.loginaction import Login
 
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
     login = Login(dr).login("系统管理员", "123456")
-
     res = ResSync(dr)
-    res.phy_res_sync("", "111111", "DC1", "DC2")
+    res.phy_res_sync("上海", "上海资源池", "DC1", "DC2")

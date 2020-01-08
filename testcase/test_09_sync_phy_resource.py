@@ -10,63 +10,57 @@ import time
 import pytest
 import allure
 
-from public.common import mytest
+from public.common.publicfunction import *
 from public.common import datainfo
-from public.appModel import resSyncAction
+from public.appmodel import ressyncaction
 from public.pages import resSyncPage
 
 
 @allure.feature("资源同步")
-class TestPhySunc(mytest.MyTest):
+class TestPhySunc():
     """物理资源同步"""
 
     @allure.story("同步物理资源")
     @pytest.mark.flaky(reruns=3)
-    def test_sync_phy_res(self):
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+    def test_sync_phy_res(self,login_domain):
+        dr = login_domain
         p_data = datainfo.get_xls_to_dict("phy_sync_data.xlsx", "Sheet1")["物理资源同步"]
-
-        self.login.login(datas["username"], datas["password"])
-        sync_a = resSyncAction.ResSync(self.dr)
-        sync_pg = resSyncPage.ResSyncPage(self.dr)
+        sync_a = ressyncaction.ResSync(dr)
+        sync_pg = resSyncPage.ResSyncPage(dr)
         sync_a.phy_res_sync(
             p_data["regionname"],
             p_data["nodename"],
             "DC1",
             "DC2")
-        # sync_a.phy_res_sync("北京","")
         time.sleep(20)
-        # 延时，等待同步完成
-        # self.dr.F5()
-        # sync_pg.open_osphysicalsyncpage()
         sync_pg.click_refresh_button()
-        status1 = self.dr.get_text(
+        status1 = dr.get_text(
             "xpath->//td[contains(.,'DC1')]/../td[3]").strip()
         count1 = 0
         while status1 == "执行中":
             time.sleep(10)
             sync_pg.click_refresh_button()
-            status1 = self.dr.get_text(
+            status1 = dr.get_text(
                 "xpath->//td[contains(.,'DC1')]/../td[3]").strip()
             count1 += 1
             if count1 == 10:
                 break
-        self.dr.wait(5)
-        self._add_image("同步物理资源-DC1")
+        dr.wait(5)
+        add_image(dr,"同步物理资源-DC1")
         assert status1 == "执行成功"
-        status2 = self.dr.get_text(
+        status2 = dr.get_text(
             "xpath->//td[contains(.,'DC2')]/../td[3]").strip()
         count2 = 0
         while status2 == "执行中":
             time.sleep(10)
             sync_pg.click_refresh_button()
-            status2 = self.dr.get_text(
+            status2 = dr.get_text(
                 "xpath->//td[contains(.,'DC1')]/../td[3]").strip()
             count2 += 1
             if count2 == 10:
                 break
-        self.dr.wait(5)
-        self._add_image("同步物理资源-DC2")
+        dr.wait(5)
+        add_image(dr,"同步物理资源-DC2")
         assert status2 == "执行成功"
 
 

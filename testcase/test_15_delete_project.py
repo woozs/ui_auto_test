@@ -8,37 +8,31 @@
 import pytest
 import allure
 from time import sleep
-from public.common import mytest
+from public.common.publicfunction import *
 from public.common import datainfo
-from public.appModel import projectAction
+from public.appmodel import projectaction
 from public.pages import authProjectPage
-from public.appModel.loginAction import Login
+from public.appmodel.loginaction import Login
 
 
 @allure.feature("项目管理")
-class TestProjectDelete(mytest.MyTest):
+class TestProjectDelete():
     """删除项目测试"""
 
     @allure.story("删除项目")
     @pytest.mark.flaky(reruns=3)
-    def test_delete_project(self):
-
-        login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+    def test_delete_project(self,login_domain):
+        dr = login_domain
         p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]
-
-        ppg = authProjectPage.AuthProjectPage(self.dr)
-        pac = projectAction.PojectAction(self.dr)
-        # login.login("wuzs0001","1qaz!QAZ")
-        login.login(datas["username"], datas["password"])
-        # tenantname,projectname,projectdesc
+        ppg = authProjectPage.AuthProjectPage(dr)
+        pac = projectaction.PojectAction(dr)
         pac.delete_project(p_data["projectname"])
         ppg.open_authproject()
         ppg.input_and_search_project(p_data["projectname"])
         sleep(1)
-        self.dr.wait(5)
-        self._add_image("删除项目")
-        flag = self.dr.element_exist("xpath->//td")
+        dr.wait(5)
+        add_image(dr,"删除项目")
+        flag = dr.element_exist("xpath->//td")
         assert flag is False
 
 

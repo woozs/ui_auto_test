@@ -13,8 +13,8 @@ from config import globalparam
 
 # 截图放到report下的img目录下
 def get_img(dr, filename):
-    if not os.path.exists(globalparam.img_path ):
-        os.makedirs(globalparam.img_path )
+    if not os.path.exists(globalparam.img_path):
+        os.makedirs(globalparam.img_path)
     path = globalparam.img_path + '\\' + filename + \
         '_' + time.strftime('%Y_%m_%d_%H_%M_%S') + '.png'
     # path = globalparam.img_path + '\\' + filename + '.png'
@@ -22,9 +22,10 @@ def get_img(dr, filename):
 
     return path
 
-def add_image(dr,filename):
+
+def add_image(dr, filename):
     image_tmp = get_img(dr, filename)
-    with  open(image_tmp, mode='rb') as f:
+    with open(image_tmp, mode='rb') as f:
         file = f.read()
         allure.attach(file, filename, allure.attachment_type.PNG)
 

@@ -10,23 +10,23 @@ import time
 import pytest
 import allure
 
-from public.common import mytest
-from public.appModel import vdcAction
+from public.common.publicfunction import *
+from public.appmodel import vdcaction
 from public.pages import vdcPage
 from public.common import datainfo
 
 
 @allure.feature("VPOOL管理")
-class Test_Vpool_Delete(mytest.MyTest):
+class Test_Vpool_Delete():
     """测试删除vpool"""
-
+    
     @allure.story("删除VPOOL")
     @pytest.mark.flaky(reruns=3)
-    def test_delete_vpool(self):
-        vdc_a = vdcAction.VdcACction(self.dr)
-        vdc_pg = vdcPage.VdcPage(self.dr)
+    def test_delete_vpool(self,login_domain):
+        dr = login_domain
+        vdc_a = vdcaction.VdcACction(dr)
+        vdc_pg = vdcPage.VdcPage(dr)
         p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vpool")["创建vpool"]
-        self.login.login("系统管理员", "123456")
         vdc_a.delete_vpool(p_data["vdcname"], p_data["vpoolname"])
         vdc_pg.open_vdc_page()
         time.sleep(1)
@@ -35,11 +35,10 @@ class Test_Vpool_Delete(mytest.MyTest):
         time.sleep(1)
         vdc_pg.search_vpool(p_data["vpoolname"])
         # 校验能查询到
-        self.dr.wait(5)
-        self._add_image("删除VPOOL")
-        flag = self.dr.element_exist("xpath->//td")
+        dr.wait(5)
+        add_image(dr,"删除VPOOL")
+        flag = dr.element_exist("xpath->//td")
         assert flag is False
-
 
 if __name__ == "__main__":
     pytest.main(["-s", "test_12_delete_vpool.py"])

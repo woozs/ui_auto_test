@@ -10,26 +10,24 @@ import time
 import pytest
 import allure
 
-from public.common import mytest
+from public.common.publicfunction import *
 from public.common import datainfo
-from public.appModel import vdcAction
+from public.appmodel import vdcaction
 from public.pages import vdcPage
-from public.appModel.loginAction import Login
+from public.appmodel.loginaction import Login
 
 
 @allure.feature("VPOOL管理")
-class TestCreateVpool(mytest.MyTest):
+class TestCreateVpool():
     """测试创建vpool"""
 
     @allure.story("创建VPOOL")
     @pytest.mark.flaky(reruns=3)
-    def test_create_vpool(self):
-        vdc_a = vdcAction.VdcACction(self.dr)
-        vdc_pg = vdcPage.VdcPage(self.dr)
-        login = Login(self.dr)
-        datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
+    def test_create_vpool(self,login_domain):
+        dr = login_domain
+        vdc_a = vdcaction.VdcACction(dr)
+        vdc_pg = vdcPage.VdcPage(dr)
         p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vpool")["创建vpool"]
-        login.login(datas["username"], datas["password"])
         vdc_a.create_vpool(
             p_data["vdcname"],
             p_data["vpoolname"],
@@ -46,9 +44,9 @@ class TestCreateVpool(mytest.MyTest):
         time.sleep(1)
         vdc_pg.search_vpool(p_data["vpoolname"])
         # 校验能查询到
-        self.dr.wait(5)
-        self._add_image("创建VPOOL")
-        text = self.dr.get_text("xpath->//td")
+        dr.wait(5)
+        add_image(dr,"创建VPOOL")
+        text = dr.get_text("xpath->//td")
         assert p_data["vpoolname"] in text
 
 

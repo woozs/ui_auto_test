@@ -9,7 +9,7 @@ import allure
 from public.common import pyselenium
 from config import globalparam
 from public.common.log import Log
-from public.appModel.loginAction import Login
+from public.appmodel.loginaction import Login
 from public.common import publicfunction
 
 
@@ -18,20 +18,32 @@ class MyTest():
     The base class is for all testcase.
     """
 
-    def setup_class(self):
-        self.logger = Log()
-        self.imge_path = globalparam.img_path
-        self.logger.info(
+    def setup_module(module):
+        """ setup any state specific to the execution of the given module."""
+        print("123544444444444444444444444444444444")
+
+
+
+    def teardown_module(module):
+        """ teardown any state that was previously setup with a setup_module
+        method.
+        """
+        print("123544444444444444444444444444444444")
+
+    def setup_class(cls):
+        cls.logger = Log()
+        cls.imge_path = globalparam.img_path
+        cls.logger.info(
             '############################### START ###############################')
-        self.dr = pyselenium.PySelenium(globalparam.browser)
-        self.dr.max_window()
-        self.login = Login(self.dr)
+        cls.dr = pyselenium.PySelenium(globalparam.browser,globalparam.headless)
+        cls.dr.max_window()
+        cls.login = Login(cls.dr)
 
 
 
-    def teardown_class(self):
-        self.dr.quit()
-        self.logger.info(
+    def teardown_class(cls):
+        cls.dr.quit()
+        cls.logger.info(
             '###############################  End  ###############################')
 
     def _add_image(self,filename):

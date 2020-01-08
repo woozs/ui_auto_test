@@ -6,7 +6,7 @@
 # @File    : menuPage.py
 # @Software: PyCharm
 
-from public.common import basepage
+from public.pages import basepage
 
 
 class MenuPage(basepage.Page):

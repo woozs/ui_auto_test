@@ -3,7 +3,7 @@
 # @Time    : 2019/10/24 19:38
 # @Author  : mrwuzs
 # @Site    :
-# @File    : tenantAction.py
+# @File    : tenantaction.py
 # @Software: PyCharm
 import allure
 
@@ -73,7 +73,7 @@ class TenantAction(object):
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
-    from public.appModel.loginAction import Login
+    from public.appmodel.loginaction import Login
 
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()

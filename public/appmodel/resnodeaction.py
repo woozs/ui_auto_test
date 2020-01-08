@@ -3,7 +3,7 @@
 # @Time    : 200.59/0.50/23 0.55:48
 # @Author  : mrwuzs
 # @Site    :
-# @File    : resNodeAction.py
+# @File    : resnodeaction.py
 # @Software: PyCharm
 import allure
 
@@ -240,7 +240,7 @@ class Add_Res_Node(object):
 if __name__ == '__main__':
     from public.common import pyselenium
     from config import globalparam
-    from public.appModel.loginAction import Login
+    from public.appmodel.loginaction import Login
 
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()

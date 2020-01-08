@@ -7,30 +7,21 @@
 # @Software: PyCharm
 
 import pytest
-import allure
-
-from time import sleep
-from public.common import mytest
 from public.common import datainfo
-from public.appModel import userAction
+from public.appmodel import useraction
 from public.pages import sysUorgMgrPage
-from public.appModel.loginAction import Login
+from public.common.publicfunction import *
 
 @allure.feature("用户管理")
-class TestCreateUser(mytest.MyTest):
+class TestCreateUser():
     """创建用户"""
-
     @allure.story("创建用户")
     @pytest.mark.flaky(reruns=3)
-    def test_create_user(self):
-
-        login = Login(self.dr)
-        login.login("系统管理员", '123456')
-
+    def test_create_user(self,login_admin):
+        dr = login_admin
         datas = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
-        upage = sysUorgMgrPage.SysUorgMgrPage(self.dr)
-        ua = userAction.UserAction(self.dr)
-
+        upage = sysUorgMgrPage.SysUorgMgrPage(dr)
+        ua = useraction.UserAction(dr)
         ua.create_user(
             datas["mgrname"],
             datas["username"],
@@ -41,8 +32,8 @@ class TestCreateUser(mytest.MyTest):
         # upage.input_select_user(datas["username"])
         # 查看用户，进行校验
         upage.input_select_user(datas["username"])
-        self._add_image("创建用户")
-        assert self.dr.element_exist(
+        add_image(dr, "创建用户")
+        assert dr.element_exist(
             "xpath->//span[contains(.,'%s')]" %
             datas["username"])
 

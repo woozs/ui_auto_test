@@ -3,7 +3,7 @@
 # @Time    : 2019/11/2 13:00
 # @Author  : mrwuzs
 # @Site    :
-# @File    : initialize_Env.py
+# @File    : initializeEnv.py
 # @Software: PyCharm
 
 from public.common.log import Log
@@ -12,7 +12,6 @@ from config.confRelevance import ConfRelevance
 
 CONF_PATH = globalparam.config_file_path + "\\config.ini"
 ENV_PATH = globalparam.xml_report_path + "\\environment.xml"
-
 
 class Init_Env:
     """初始化环境信息，更新xml文件"""
