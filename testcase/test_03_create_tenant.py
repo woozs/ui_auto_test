@@ -13,7 +13,7 @@ import allure
 from public.common.publicfunction import *
 from public.common import datainfo
 from public.appmodel import tenantaction
-from public.pages import authTenantPage
+from public.pages import auth_tenant_page
 
 @allure.feature("运营部门管理")
 class TestTeant():
@@ -24,7 +24,7 @@ class TestTeant():
     def test_create(self,login_domain):
         dr = login_domain
         t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")["创建运营部门"]
-        tpg = authTenantPage.AuthTenantPage(dr)
+        tpg = auth_tenant_page.AuthTenantPage(dr)
         ta = tenantaction.TenantAction(dr)
         ta.create_tenant(
             t_data["tenantname"],

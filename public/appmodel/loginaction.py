@@ -55,8 +55,10 @@ if __name__ == '__main__':
     from config import globalparam
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
-    login = Login(dr).login("上海管理员", "1qaz!QAZ")
+    login = Login(dr).login("hubei01", "1qaz!QAZ")
     cookies = dr.origin_driver.get_cookies()
     jsonCookies = json.dumps(cookies)
-    with open('cookies.json', 'w') as f:
+    cookie_path = globalparam.cookie_path + "\\cookies.json"
+    with open(cookie_path, 'w') as f:
+        print(jsonCookies)
         f.write(jsonCookies)

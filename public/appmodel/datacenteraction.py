@@ -7,7 +7,7 @@
 # @Software: PyCharm
 
 import allure
-from public.pages import dataCenterPage
+from public.pages import datacenterpage
 from public.common import log
 
 
@@ -15,7 +15,7 @@ class DataCenterAction(object):
 
     def __init__(self, driver):
         self.dr = driver
-        self.dcPg = dataCenterPage.DataCenterPage(self.dr)
+        self.dcPg = datacenterpage.DataCenterPage(self.dr)
         self.log = log.Log()
 
     @allure.step("选择资源类型")

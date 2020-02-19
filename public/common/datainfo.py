@@ -8,6 +8,7 @@
 import codecs
 import os
 import xlrd
+import chardet
 from config import globalparam
 
 data_path = globalparam.data_path
@@ -22,8 +23,11 @@ def get_xls_to_dict(xlsname, sheetname):
     datapath = os.path.join(data_path, xlsname)
     xls1 = xlrd.open_workbook(datapath)
     table = xls1.sheet_by_name(sheetname)
+
     dataresult = [table.row_values(i) for i in range(0, table.nrows)]
     # 将list转化成dict
+
+
     result1 = [dict(zip(dataresult[0], dataresult[i]))
                for i in range(1, len(dataresult))]
     keys = []
@@ -64,4 +68,4 @@ if __name__ == '__main__':
     # res = get_xls_to_list('tenantdata.xlsx','Sheet1')
     res = get_xls_to_dict('tenantdata.xlsx', 'Sheet1')
     print(res)
-    print(res[0]["linkmanphoneno"])
+    print(res["创建运营部门"])

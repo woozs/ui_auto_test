@@ -24,6 +24,7 @@ def get_cookie(username, password):
 
 def add_cookie(dr):
     dr.origin_driver.delete_all_cookies()
+    print(cookie_path)
     with open(cookie_path, 'r', encoding='utf-8') as f:
         listCookies = json.loads(f.read())
     for cookie in listCookies:

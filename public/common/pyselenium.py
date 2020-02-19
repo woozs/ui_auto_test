@@ -474,6 +474,46 @@ class PySelenium(object):
             "{0} send the key esc, Spend {1} seconds".format(
                 success, time.time() - t1))
 
+    def backspace(self,css):
+        """
+                send esc key
+                :return:
+                """
+        t1 = time.time()
+        try:
+            self.element_wait(css)
+            el = self.get_element(css)
+            el.send_keys(Keys.BACK_SPACE)
+            self.my_print(
+                "{0} BACK_SPACE  element: <{1}>, Spend {2} seconds".format(
+                    success, css, time.time() - t1))
+        except Exception :
+            self.my_print(
+                "{0} Unable to BACK_SPACE element: <{1}>, Spend {2} seconds".format(
+                    fail, css, time.time() - t1))
+        # t1 = time.time()
+        # ActionChains(self.driver).send_keys(Keys.BACK_SPACE).perform()
+        # self.my_print(
+        #     "{0} send the key esc, Spend {1} seconds".format(
+        #         success, time.time() - t1))
+
+    def sendkey(self,css,value):
+        """
+                send esc key
+                :return:
+                """
+        t1 = time.time()
+        try:
+            self.element_wait(css)
+            el = self.get_element(css)
+            el.send_keys(Keys.NUMPAD0)%value
+            self.my_print(
+                "{0} BACK_SPACE  element: <{1}>, Spend {2} seconds".format(
+                    success, css, time.time() - t1))
+        except Exception :
+            self.my_print(
+                "{0} Unable to BACK_SPACE element: <{1}>, Spend")
+
     def js(self, script):
         """
         Execute JavaScript scripts.

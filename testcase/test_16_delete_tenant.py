@@ -9,7 +9,7 @@ import pytest
 from public.common.publicfunction import *
 from public.common import datainfo
 from public.appmodel import tenantaction
-from public.pages import authTenantPage
+from public.pages import auth_tenant_page
 from public.appmodel.loginaction import Login
 
 
@@ -21,7 +21,7 @@ class TestTenantDelete():
     def test_delete_tenant(self,login_admin):
         dr = login_admin
         t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")["创建运营部门"]
-        tpg = authTenantPage.AuthTenantPage(dr)
+        tpg = auth_tenant_page.AuthTenantPage(dr)
         ta = tenantaction.TenantAction(dr)
         try:
             ta.remove_post(t_data["tenantname"])

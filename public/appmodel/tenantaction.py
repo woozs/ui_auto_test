@@ -8,14 +8,14 @@
 import allure
 
 from time import sleep
-from public.pages import authTenantPage
+from public.pages import auth_tenant_page
 from public.common import log
 
 
 class TenantAction(object):
     def __init__(self, driver):
         self.dr = driver
-        self.tenantpg = authTenantPage.AuthTenantPage(self.dr)
+        self.tenantpg = auth_tenant_page.AuthTenantPage(self.dr)
         self.log = log.Log()
 
     def create_tenant(self, tenantname, linkmanname, linkmanphoneno):

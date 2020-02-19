@@ -9,7 +9,7 @@
 import allure
 
 from time import sleep
-from public.pages import dataCenterPage
+from public.pages import datacenterpage
 from public.common import log
 from public.appmodel import datacenteraction
 

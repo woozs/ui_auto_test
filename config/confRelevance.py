@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/11/2 13:02
 # @Author  : mrwuzs
-# @Site    : 
+# @Site    :
 # @File    : confRelevance.py
 # @Software: PyCharm
 import configparser
@@ -10,10 +10,9 @@ import configparser
 from public.common.log import Log
 
 
-
 class ConfRelevance:
     # 关联文件读取配置
-    def __init__(self, _path,title):
+    def __init__(self, _path, title):
         self.log = Log()
         self.log.info("初始化关联文件")
         config = configparser.ConfigParser()
@@ -28,7 +27,6 @@ class ConfRelevance:
         return relevance
 
 
-
 if __name__ == "__main__":
-    host = ConfRelevance("H:\\cmp\\config\\config.ini","test")
+    host = ConfRelevance("H:\\cmp\\config\\config.ini", "test")
     print(host.get_relevance_conf())

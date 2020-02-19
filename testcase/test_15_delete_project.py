@@ -11,7 +11,7 @@ from time import sleep
 from public.common.publicfunction import *
 from public.common import datainfo
 from public.appmodel import projectaction
-from public.pages import authProjectPage
+from public.pages import auth_project_page
 from public.appmodel.loginaction import Login
 
 
@@ -24,7 +24,7 @@ class TestProjectDelete():
     def test_delete_project(self,login_domain):
         dr = login_domain
         p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]
-        ppg = authProjectPage.AuthProjectPage(dr)
+        ppg = auth_project_page.AuthProjectPage(dr)
         pac = projectaction.PojectAction(dr)
         pac.delete_project(p_data["projectname"])
         ppg.open_authproject()

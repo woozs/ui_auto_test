@@ -10,7 +10,7 @@ import pytest
 from public.common.publicfunction import *
 from public.common import datainfo
 from public.appmodel import projectaction
-from public.pages import authProjectPage
+from public.pages import auth_project_page
 
 @allure.feature("项目管理")
 class TestProject():
@@ -21,7 +21,7 @@ class TestProject():
     def test_create_project(self,login_admin):
         dr = login_admin
         p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]
-        ppg = authProjectPage.AuthProjectPage(dr)
+        ppg = auth_project_page.AuthProjectPage(dr)
         pac = projectaction.PojectAction(dr)
         pac.create_project(
             p_data["tenantname"],

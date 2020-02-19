@@ -31,6 +31,10 @@ class Page(object):
             globalparam.url +
             "/csdp/portal/#/resourceOverview")
 
+    def open_project_view(self):
+        self.log.debug("打开项目视图")
+        self.dr.click()
+
     def move_to_el_icon_right(self):
         self.log.debug("鼠标悬停到下拉按钮")
         self.dr.move_to_element("xpath->//div[@id='app']/section/header/div/div/div[3]/div[3]/span/i")
@@ -38,3 +42,16 @@ class Page(object):
     def click_logout_button(self):
         self.log.debug("点击退出按钮")
         self.dr.click("xpath->//ul/li[text()='退出']")
+
+    def click_common_confirm_button(self):
+        self.log.debug("单击确定按钮")
+        self.dr.click("xpath->//button[contains(.,'确定')]")
+
+
+    def click_common_remove_button(self):
+        self.log.debug("单击移除按钮")
+        self.dr.click("xpath->//button[contains(.,'移除')]")
+
+    def click_common_confirm_button_tag_a(self):
+        self.log.debug("单击确定按钮")
+        self.dr.click("xpath->//a[contains(.,'确定')]")
