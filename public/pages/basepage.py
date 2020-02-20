@@ -17,9 +17,7 @@ class Page(object):
         self.dr = selenium_driver
         self.log = log.Log()
 
-    def menu_bar_hovers(self):
-        self.log.debug("点击菜单按钮")
-        self.dr.click("xpath->//i")
+
 
     def click_res_node_mag(self):
         self.log.debug("点击资源节点管理")
@@ -55,3 +53,32 @@ class Page(object):
     def click_common_confirm_button_tag_a(self):
         self.log.debug("单击确定按钮")
         self.dr.click("xpath->//a[contains(.,'确定')]")
+
+    def mova_to_menu_bar(self):
+        self.dr.move_to_element("xpath -> //div[@id='app']/section/header/div/div/div/span/button")
+
+
+    def move_to_project_view_button(self):
+        self.log.debug("")
+        self.dr.move_to_element("xpath->//li[contains(.,'项目视图')]")
+
+
+    def click_project_view_button(self):
+        self.log.debug("点击项目视图按钮")
+        self.dr.click("xpath->//li[contains(.,'项目视图')]")
+
+    def move_to_project_cloud_host_button(self):
+        self.log.debug("移动鼠标到云主机")
+        self.dr.move_to_element("xpath->//span[contains(.,'云主机')]")
+
+    def click_control_center_button(self):
+        page = self.dr.origin_driver.page_source
+        print(page)
+        self.log.debug("点击控制中心-云主机按钮")
+        self.dr.click("xpath->//span[text()='云主机快照']")
+        # self.dr.js("arguments[0].click();", el)
+    `   
+    def click_cloud_host_snap_button(self):
+        self.log.debug("点击云主机快照")
+        self.dr.click("xpath->//span[contains(.,'云主机快照')]")
+

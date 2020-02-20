@@ -151,7 +151,7 @@ class PySelenium(object):
         elif by == "css":
             WebDriverWait(
                 self.driver, secs, 1).until(
-                EC.presence_of_element_located(
+                EC.presence_of_element_located(move_to_element
                     (By.CSS_SELECTOR, value)), messages)
         else:
             raise NameError(
