@@ -26,7 +26,7 @@ class ResSyncPage(basepage.Page):
             "/csdp/manage/#/manage-view/resource/sys_ResourceSynchroniz/osphysicalsync")
 
     def click_phy_res_sync(self):
-        self.log.debug("点击物理资源同步到云管")
+        self.log.debug("单击物理资源同步到云管")
         self.dr.click("xpath->//span[contains(.,'物理资源同步到云管')]")
 
     def click_select_region(self):
@@ -65,7 +65,7 @@ class ResSyncPage(basepage.Page):
         self.dr.switch_to_frame("id->syncModal")
 
     def click_refresh_button(self):
-        self.log.debug("点击刷新按钮")
+        self.log.debug("单击刷新按钮")
         self.dr.click("xpath->//button[contains(.,' 刷新')]")
 
     def get_text_status(self, value):

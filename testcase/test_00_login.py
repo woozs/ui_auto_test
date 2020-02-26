@@ -15,7 +15,7 @@ class TestLoin():
     """登录测试"""
     @allure.story("系统管理员登录系统")
     @allure.severity(allure.severity_level.BLOCKER)
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_login(self,login_admin):
         dr = login_admin
         dr.wait(5)

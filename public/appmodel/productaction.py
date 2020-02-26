@@ -48,11 +48,13 @@ if __name__ == '__main__':
     dr = pyselenium.PySelenium(globalparam.browser)
     dr.max_window()
     login = Login(dr).login("系统管理员", "123456")
-
     #
     product = ProductAction(dr)
+    sleep(2)
     product.create_productclassify("123","1","234")
     # # user.create_user("河南","wuzs0001","wuzs0001","1qaz!QAZ","1qaz!QAZ","wzs@qq.com")
     # user.create_tenant_user("wuzs_auto01", "wuzs_teant_0001", "wuzs_teant_0001", "1qaz!QAZ", "1qaz!QAZ", "wzs@qq.com")
     # user.allocation_domain_administrator("河南","wuzs0001")
     #
+    sleep(5)
+    dr.quit()

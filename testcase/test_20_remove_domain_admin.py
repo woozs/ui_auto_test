@@ -23,7 +23,7 @@ class TestRemoveDomainAdmin():
     """移除域管理员"""
 
     @allure.story("移除域管理员")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_remove_domain_admin(self,login_admin):
 
         dr = login_admin

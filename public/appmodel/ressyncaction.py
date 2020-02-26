@@ -12,6 +12,7 @@ from public.pages import menuPage
 from public.pages import resSyncPage
 from public.common import log
 from public.common import publicfunction
+from config import globalparam
 
 
 class ResSync(object):
@@ -32,10 +33,11 @@ class ResSync(object):
             allure.attach("域：%s" % reginname)
             allure.attach("资源节点的名称:%s" % datacenter)
         self.log.info("同步物理资源")
+        sleep(globalparam.middle)
         self.syncPage.open_ressyncpage()
         self.syncPage.open_osphysicalsyncpage()
         self.log.info("选择region：%s;" % reginname)
-        sleep(1)
+        sleep(globalparam.small)
         self.syncPage.click_select_region()
         self.syncPage.select_region(reginname)
         self.log.info("选择数据中心:%s" % datacenter)
@@ -46,10 +48,10 @@ class ResSync(object):
                 allure.attach("数据中心名称:%s" % DC)
             self.syncPage.select_and_click_data_center(DC)
         self.syncPage.click_sync_buttun()
-        sleep(1)
+        sleep(globalparam.small)
         # self.syncPage.switch_commit_page()
         self.syncPage.click_commit_buttun()
-        sleep(1)
+        sleep(globalparam.small)
         commit_button_flag = self.syncPage.is_exists_commit_buttun()
         if commit_button_flag is True:
             publicfunction.add_image(self.dr, "物理资源无法同步")

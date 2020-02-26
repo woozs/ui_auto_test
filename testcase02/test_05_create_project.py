@@ -18,8 +18,8 @@ class TestProject():
 
     @allure.story("创建项目")
     @pytest.mark.flaky(reruns=globalparam.RENUM)
-    def test_create_project(self,login_admin):
-        dr = login_admin
+    def test_create_project(self,login_domain):
+        dr = login_domain
         p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]
         ppg = auth_project_page.AuthProjectPage(dr)
         pac = projectaction.PojectAction(dr)
@@ -29,7 +29,6 @@ class TestProject():
             p_data["projectdesc"])
         ppg.open_authproject()
         ppg.input_and_search_project(p_data["projectname"])
-        dr.wait(5)
         add_image(dr,"创建项目")
         text = dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")

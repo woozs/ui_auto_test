@@ -20,7 +20,7 @@ class AuthProductPage(basepage.Page):
             "/csdp/manage/#/manage-view/adminManage/folder/prodCateg")
 
     def click_crate_product_classify_button(self):
-        self.log.debug("点击创建产品分类按钮")
+        self.log.debug("单击创建产品分类按钮")
         self.dr.click("xpath->(//button[@type='button'])[10]")
 
     def input_clssifyname(self, value):
@@ -32,7 +32,7 @@ class AuthProductPage(basepage.Page):
         self.dr.clear_type("xpath->/html/body/app-component/div[1]/main-component/div/div/manage-component/div/div/div/div/div[1]/div[1]/div[2]/form/div[1]/div/div[3]/div/input", value)
 
     def click_select_classify_button(self):
-        self.log.debug("点击选择产品分类图标按钮")
+        self.log.debug("单击选择产品分类图标按钮")
         self.dr.click("xpath->/html/body/app-component/div[1]/main-component/div/div/manage-component/div/div/div/div/div[1]/div[1]/div[2]/form/div[1]/div/div[4]/div/div/span/button")
 
     def click_select_classify_menu_button(self, value):
@@ -40,7 +40,7 @@ class AuthProductPage(basepage.Page):
         self.dr.click("xpath->/html/body/div[4]/div/div[2]/div/ul/li[2]/i")
 
     def click_assure_button(self):
-        self.log.debug("点击确定按钮")
+        self.log.debug("单击确定按钮")
         self.dr.click("xpath->/html/body/div[4]/div/div[3]/div/button[1]")
 
     def input_description(self, value):
@@ -49,5 +49,5 @@ class AuthProductPage(basepage.Page):
             "/html/body/app-component/div[1]/main-component/div/div/manage-component/div/div/div/div/div[1]/div[1]/div[2]/form/div[1]/div/div[5]/div/textarea",value)
 
     def click_new_product_classify_save_button(self):
-        self.log.debug("点击保存按钮")
+        self.log.debug("单击保存按钮")
         self.dr.click("xpath->/html/body/app-component/div[1]/main-component/div/div/manage-component/div/div/div/div/div[1]/div[1]/div[2]/form/div[2]/div/div/button[1]")

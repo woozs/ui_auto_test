@@ -17,7 +17,7 @@ class TestCreateEndpoint():
     """测试添加Endpoint"""
 
     @allure.story("VMware创建endpoint")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_vmware_endpoint(self,login_domain):
         """
         测试添加vmware，endpoint
@@ -36,7 +36,6 @@ class TestCreateEndpoint():
             p_data["url"])
 
         time.sleep(0.5)
-        dr.wait(5)
         add_image(dr,"VMware创建endpoint")
         text = dr.get_text(
             "xpath->//table[@id='accessPoint']/tbody/tr[2]")
@@ -44,7 +43,7 @@ class TestCreateEndpoint():
 
 
     @allure.story("openstack创建endpoint")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_openstack_endpoint(self,login_domain):
         """
         测试添加openstack，endpoint

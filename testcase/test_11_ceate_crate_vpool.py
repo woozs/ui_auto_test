@@ -22,7 +22,7 @@ class TestCreateVpool():
     """测试创建vpool"""
 
     @allure.story("创建VPOOL")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_create_vpool(self,login_domain):
         dr = login_domain
         vdc_a = vdcaction.VdcACction(dr)
@@ -37,14 +37,13 @@ class TestCreateVpool():
             p_data["vpooldesc"])
 
         vdc_pg.open_vdc_page()
-        time.sleep(1)
+        time.sleep(globalparam.small)
         vdc_pg.search_vdc(p_data["vdcname"])
-        time.sleep(1)
+        time.sleep(globalparam.small)
         vdc_pg.click_az_buttun()
-        time.sleep(1)
+        time.sleep(globalparam.small)
         vdc_pg.search_vpool(p_data["vpoolname"])
         # 校验能查询到
-        dr.wait(5)
         add_image(dr,"创建VPOOL")
         text = dr.get_text("xpath->//td")
         assert p_data["vpoolname"] in text

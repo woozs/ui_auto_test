@@ -7,6 +7,7 @@
 
 from public.common import log
 from config import globalparam
+from public.common import publicfunction
 
 class Page(object):
     """
@@ -20,7 +21,7 @@ class Page(object):
 
 
     def click_res_node_mag(self):
-        self.log.debug("点击资源节点管理")
+        self.log.debug("单击资源节点管理")
         self.dr.click("xpath -> //li[contains(.,'资源节点管理')]")
 
     def open_resource_overview(self):
@@ -38,7 +39,7 @@ class Page(object):
         self.dr.move_to_element("xpath->//div[@id='app']/section/header/div/div/div[3]/div[3]/span/i")
 
     def click_logout_button(self):
-        self.log.debug("点击退出按钮")
+        self.log.debug("单击退出按钮")
         self.dr.click("xpath->//ul/li[text()='退出']")
 
     def click_common_confirm_button(self):
@@ -64,7 +65,7 @@ class Page(object):
 
 
     def click_project_view_button(self):
-        self.log.debug("点击项目视图按钮")
+        self.log.debug("单击项目视图按钮")
         self.dr.click("xpath->//li[contains(.,'项目视图')]")
 
     def move_to_project_cloud_host_button(self):
@@ -74,11 +75,36 @@ class Page(object):
     def click_control_center_button(self):
         page = self.dr.origin_driver.page_source
         print(page)
-        self.log.debug("点击控制中心-云主机按钮")
+        self.log.debug("单击控制中心-云主机按钮")
         self.dr.click("xpath->//span[text()='云主机快照']")
         # self.dr.js("arguments[0].click();", el)
-    `   
+
     def click_cloud_host_snap_button(self):
-        self.log.debug("点击云主机快照")
+        self.log.debug("单击云主机快照")
         self.dr.click("xpath->//span[contains(.,'云主机快照')]")
 
+    def click_control_view(self):
+        self.log.debug("鼠标单击概览按钮")
+        self.dr.get_("xpath->//body/app-component")
+
+
+    #项目视图
+    def open_pv_cloudhost(self,projectname):
+        self.log.debug("打开项目视图的控制中心云主机页面")
+        prject_id = publicfunction.get_project_id(projectname)
+        self.dr.open(globalparam.url+"/csdp/project/#/project/%s/control/manage_vm"%prject_id)
+
+    def open_pv_managevolume_page(self,projectname):
+        self.log.debug("打开项目视图的控制中心云磁盘页面")
+        prject_id = publicfunction.get_project_id(projectname)
+        self.dr.open(globalparam.url+"/csdp/project/#/project/%s/control/manage_volume"%prject_id)
+
+    def open_shoppingcar_page(self,projectname):
+        self.log.debug("打开申请单页面")
+        prject_id = publicfunction.get_project_id(projectname)
+        self.dr.open(globalparam.url+"/csdp/project/#/project/%s/shoppingcar"%prject_id)
+
+
+    def page_to_bottom(self):
+        self.log.debug("下滑页面到底部")
+        self.dr.END()

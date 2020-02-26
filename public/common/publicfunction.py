@@ -9,6 +9,7 @@ import os
 import time
 import allure
 from config import globalparam
+from public.common.mysql_pub import OpMysql
 
 
 # 截图放到report下的img目录下
@@ -37,10 +38,16 @@ def is_Chinese(char):
         else:
             return False
 
+def get_project_id(projectname):
+    user = OpMysql('192.168.253.55',14316,'arkproxy','P@ssw0rd','user')
+    uuid = user.select_one("SELECT UUID FROM project WHERE NAME  LIKE '%s' "%projectname)["UUID"]
+    return uuid
+
 
 if __name__ == '__main__':
     from public.common import pyselenium
-    dr = pyselenium.PySelenium(globalparam.browser)
-    dr.max_window()
-    dr.open('http://192.168.54.13/#/login')
-    get_img(dr, "登录界面")
+    # dr = pyselenium.PySelenium(globalparam.browser)
+    # dr.max_window()
+    # dr.open('http://192.168.54.13/#/login')
+    # get_img(dr, "登录界面")
+    print(get_project_id("湖北"))

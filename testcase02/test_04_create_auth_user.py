@@ -35,7 +35,6 @@ class TestCreateUser():
             data1s["email"])
         aupg.open_authuser()
         aupg.input_select_user(data1s["username"])
-        dr.wait(5)
         add_image(dr,"创建运营部门下的用户")
         text = dr.get_text(
             "xpath->//div[@class='box-body']/table-component/div/table/tbody")

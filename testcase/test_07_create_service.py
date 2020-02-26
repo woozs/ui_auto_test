@@ -19,7 +19,7 @@ class TestCreateService():
     """测试添加service"""
 
     @allure.story("创建VMware服务")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_create_service_vmware(self,login_domain):
         dr = login_domain
         self.arn = resnodeaction.Add_Res_Node(dr)
@@ -45,7 +45,7 @@ class TestCreateService():
         assert flag
 
     @allure.story("创建opentack服务")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_create_service_openstack(self,login_domain):
         dr = login_domain
         self.arn = resnodeaction.Add_Res_Node(dr)

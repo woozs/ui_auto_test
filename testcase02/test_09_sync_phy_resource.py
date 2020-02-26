@@ -51,7 +51,7 @@ class TestPhySunc():
             "xpath->//td[contains(.,'DC2')]/../td[3]").strip()
         count2 = 0
         while status2 == "执行中":
-            time.sleep(10)
+            time.sleep(globalparam.long)
             sync_pg.click_refresh_button()
             status2 = dr.get_text(
                 "xpath->//td[contains(.,'DC1')]/../td[3]").strip()

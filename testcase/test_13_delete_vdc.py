@@ -19,7 +19,7 @@ class Test_Vpool_Vdc():
     """测试删除VDC"""
 
     @allure.story("删除VDC")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_delete_vdc(self,login_domain):
         dr = login_domain
         vdc_a = vdcaction.VdcACction(dr)
@@ -27,7 +27,7 @@ class Test_Vpool_Vdc():
         p_data = datainfo.get_xls_to_dict("vdc_vpool.xlsx", "vdc")["创建vdc"]
         vdc_a.delete_vdc(p_data["vdcname"])
         vdc_pg.open_vdc_page()
-        time.sleep(1)
+        time.sleep(globalparam.small)
         vdc_pg.search_vdc(p_data["vdcname"])
         #         # 校验能查询到
         dr.wait(5)

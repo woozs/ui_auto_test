@@ -14,3 +14,7 @@ class SysimagePage(basepage.Page):
         self.log.debug("打开镜像管理页面")
         self.dr.open(globalparam.url + "/csdp/manage/#/manage-view/resource/sys_image")
 
+    def select_image_name(self,value):
+        self.log.debug("搜索镜像：%s"%value)
+        self.dr.type_and_enter("xpath=(//input[@type='text'])[12]",value)
+

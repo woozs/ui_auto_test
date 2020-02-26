@@ -21,7 +21,7 @@ class TestCreateRegion():
     """测试添加资源节点"""
 
     @allure.story("创建资源节点")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_create_region(self,login_domain):
         dr = login_domain
         p_data = datainfo.get_xls_to_dict("res_node_data.xlsx", "region")["创建资源节点"]
@@ -36,7 +36,7 @@ class TestCreateRegion():
             regDesc=p_data["regDesc"])
 
         srmpg.open_sys_regionMgr_page()
-        time.sleep(1)
+        time.sleep(globalparam.small)
         dr.wait(5)
         add_image(dr,"创建资源节点")
         flag = dr.element_exist(

@@ -20,7 +20,7 @@ class TestProjectDelete():
     """删除项目测试"""
 
     @allure.story("删除项目")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_delete_project(self,login_domain):
         dr = login_domain
         p_data = datainfo.get_xls_to_dict("projectdata.xlsx", "Sheet1")["创建项目"]

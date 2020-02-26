@@ -10,6 +10,7 @@ import allure
 from time import sleep
 from public.pages import sys_regionMgrPage
 from public.common import log
+from  config import globalparam
 
 
 class Add_Res_Node(object):
@@ -20,6 +21,7 @@ class Add_Res_Node(object):
         self.log = log.Log()
 
     def _skip_to_resource_node(self):
+        sleep(globalparam.middle)
         self.regionpg.open_sys_regionMgr_page()
         # self.log.info("跳转到资源节点页面")
         # menupage = menuPage.MenuPage(self.dr)
@@ -36,7 +38,6 @@ class Add_Res_Node(object):
             virtual_type,
             regDesc):
         self._skip_to_resource_node()
-        self.dr.wait(10)
         with allure.step("创建资源节点"):
             allure.attach("域：%s" % regionname)
             allure.attach("资源节点的名称:%s" % nodename)

@@ -18,11 +18,11 @@ class AuthProjectPage(basepage.Page):
             "/csdp/manage/#/manage-view/adminManage/auth/projects")
 
     def click_new_create_buttun(self):
-        self.log.debug("点击创建项目按钮")
+        self.log.debug("单击创建项目按钮")
         self.dr.click("xpath->//div[5]/button/i")
 
     def click_select_tenant(self):
-        self.log.debug("点击选择运营部门")
+        self.log.debug("单击选择运营部门")
         self.dr.click("xpath->//span[contains(.,'请选择运营部门')]")
 
     def input_and_select_tenant(self, value):
@@ -30,7 +30,7 @@ class AuthProjectPage(basepage.Page):
         self.dr.type_and_enter("xpath->(//input[@type='search'])[3]", value)
 
     def click_select_zzjg(self):
-        self.log.debug("点击选择组织机构按钮")
+        self.log.debug("单击选择组织机构按钮")
         self.dr.click("xpath->//div[3]/div/div/button[2]/i")
 
     def input_project_name(self, value):
@@ -46,7 +46,7 @@ class AuthProjectPage(basepage.Page):
         self.dr.click("xpath->//a[contains(text(),'%s')]" % value)
 
     def click_save_new_project(self):
-        self.log.debug("点击保存项目按钮")
+        self.log.debug("单击保存项目按钮")
         self.dr.click("xpath->(//button[@type='button'])[10]")
 
     def input_and_search_project(self, value):
@@ -55,19 +55,19 @@ class AuthProjectPage(basepage.Page):
             "xpath->//div/div/div/div/div/div/div/div/form/div/div/input", value)
 
     def click_project_more_button(self):
-        self.log.debug("点击更多按钮")
+        self.log.debug("单击更多按钮")
         self.dr.click("xpath->//span[contains(.,'更多')]")
 
     def click_project_delete_button(self):
-        self.log.debug("点击删除按钮")
+        self.log.debug("单击删除按钮")
         self.dr.click("xpath->//button[contains(.,'删除')]")
 
     def click_project_delete_success_button(self):
-        self.log.debug("点击确定按钮")
+        self.log.debug("单击确定按钮")
         self.dr.click("xpath->//a[contains(.,'确定')]")
 
     def click_project_network_button(self):
-        self.log.debug("点击网络按钮")
+        self.log.debug("单击网络按钮")
         self.dr.click("xpath->//button[contains(.,'网络')]")
 
     def click_project_name_button(self,value):
@@ -92,7 +92,7 @@ class AuthProjectPage(basepage.Page):
         self.dr.click("xpath->//a[contains(text(),'管理用户')]")
 
     def input_serach_user_box(self,value):
-        """点击选择用户后的页面"""
+        """单击选择用户后的页面"""
         self.log.debug("查询用户：%s"%value)
         self.dr.type_and_enter("xpath->(//input[@type='search'])[7]",value)
 
@@ -109,5 +109,5 @@ class AuthProjectPage(basepage.Page):
 
     def click_remove_button(self):
         """操作下的移除按钮"""
-        self.log.debug("点击移除按钮")
+        self.log.debug("单击移除按钮")
         self.dr.click("")

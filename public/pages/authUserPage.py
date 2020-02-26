@@ -19,11 +19,11 @@ class AuthUsertPage(basepage.Page):
             "/csdp/manage/#/manage-view/adminManage/auth/user")
 
     def click_crate_user_button(self):
-        self.log.debug("点击创建用户按钮")
+        self.log.debug("单击创建用户按钮")
         self.dr.click("xpath->(//button[@type='button'])[10]")
 
     def click_selcet_tenant(self):
-        self.log.debug("点击选择运营部门按钮")
+        self.log.debug("单击选择运营部门按钮")
         self.dr.click("xpath->//span/button/i")
 
     def input_select_tenant(self, value):
@@ -36,13 +36,13 @@ class AuthUsertPage(basepage.Page):
         #                    ,value)
 
     def click_radio_tenant_name(self):
-        self.log.debug("点击运营部门单选框")
+        self.log.debug("单击运营部门单选框")
         self.dr.click(
             "xpath->//div[@id='selectClientModal']/div[@class='modal-body']/div[@class='box-body form']/"
             "table-component/div/table/tbody/tr/td[1]/div/span/input[@type='radio']")
 
     def click_commit_button(self):
-        self.log.debug("点击确定按钮")
+        self.log.debug("单击确定按钮")
         self.dr.click(
             "xpath->//div[@id='selectClientModal']/div[@class='modal-footer']/"
             "button[@class='btn btn-flat btn-primary']")
@@ -68,7 +68,7 @@ class AuthUsertPage(basepage.Page):
         self.dr.clear_type("xpath->(//input[@name='email'])[2]", value)
 
     def click_new_user_save_button(self):
-        self.log.debug("点击保存按钮")
+        self.log.debug("单击保存按钮")
         self.dr.click("xpath->//form/div[2]/div/div/button")
 
     def input_select_user(self, value):
@@ -77,13 +77,13 @@ class AuthUsertPage(basepage.Page):
             "xpath->//div[@class='table-toolbar']/div/div//form/div/div/input", value)
 
     def click_user_more_button(self):
-        self.log.debug("点击更多按钮")
+        self.log.debug("单击更多按钮")
         self.dr.click("xpath->//span[contains(.,'更多')]")
 
     def click_user_delete_button(self):
-        self.log.debug("点击删除按钮")
+        self.log.debug("单击删除按钮")
         self.dr.click("xpath->//button[contains(.,'删除')]")
 
     def click_user_delete_success_button(self):
-        self.log.debug("点击确定按钮")
+        self.log.debug("单击确定按钮")
         self.dr.click("xpath->//a[contains(.,'确定')]")

@@ -13,15 +13,15 @@ from config import globalparam
 class NetwoekPage(basepage.Page):
 
     def click_new_create_button(self):
-        self.log.debug("点击新建网络按钮")
+        self.log.debug("单击新建网络按钮")
         self.dr.click("xpath->//button[contains(.,'新建')]")
 
     def click_ipv4_button(self):
-        self.log.debug("点击ipv4按钮")
+        self.log.debug("单击ipv4按钮")
         self.dr.click("xpath->//button[contains(.,'4')]")
 
     def click_ipv6_button(self):
-        self.log.debug("点击ipv6按钮")
+        self.log.debug("单击ipv6按钮")
         self.dr.click("xpath->//button[contains(.,'6')]")
 
     def input_network_name(self,value):
@@ -29,7 +29,7 @@ class NetwoekPage(basepage.Page):
         self.dr.type("xpath->//input[@id='networkName']",value)
 
     def click_vlan_input_box(self):
-        self.log.debug("点击vlan输入框")
+        self.log.debug("单击vlan输入框")
         self.dr.click("xpath->//div[@id='addNet_modal']/div[2]/form/div/div[7]/div/div/div/span")
 
     def  input_text_new_create(self):
@@ -67,11 +67,11 @@ class NetwoekPage(basepage.Page):
         self.dr.type("xpath->(//input[@type='text'])[25]",value)
 
     def click_enable_dhcp(self):
-        self.log.debug("点击开启dhcp")
+        self.log.debug("单击开启dhcp")
         self.dr.click("xpath->//div[@id='addNet_modal']/div[2]/form/div/div[12]/div/div/span")
 
     def click_save_button(self):
-        self.log.debug("点击保存按钮")
+        self.log.debug("单击保存按钮")
         self.dr.click("xpath->//div[@id='addNet_modal']/div[3]/button")
 
     def select_network(self,value):
@@ -93,7 +93,7 @@ class NetwoekPage(basepage.Page):
         self.dr.click("xpath->//button[contains(.,' 删除')]")
 
     def click_commit_delsubnet_button(self):
-        self.log.debug("点击删除确认按钮")
+        self.log.debug("单击删除确认按钮")
         self.dr.click("xpath->//a[contains(.,'确定')]")
 
 

@@ -151,7 +151,7 @@ class PySelenium(object):
         elif by == "css":
             WebDriverWait(
                 self.driver, secs, 1).until(
-                EC.presence_of_element_located(move_to_element
+                EC.presence_of_element_located(
                     (By.CSS_SELECTOR, value)), messages)
         else:
             raise NameError(
@@ -474,6 +474,18 @@ class PySelenium(object):
             "{0} send the key esc, Spend {1} seconds".format(
                 success, time.time() - t1))
 
+    def END(self):
+        """
+        send END key
+        :return:
+        """
+        t1 = time.time()
+        ActionChains(self.driver).send_keys(Keys.END).perform()
+        self.my_print(
+            "{0} send the key END, Spend {1} seconds".format(
+                success, time.time() - t1))
+
+
     def backspace(self,css):
         """
                 send esc key
@@ -754,7 +766,7 @@ class PySelenium(object):
             all_handle = self.driver.window_handles
             flag = 0
             while len(all_handle) < 2:
-                time.sleep(1)
+                time.sleep(globalparam.small)
                 all_handle = self.driver.window_handles
                 flag += 1
                 if flag == 5:

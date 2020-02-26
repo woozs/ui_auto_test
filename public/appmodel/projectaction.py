@@ -10,6 +10,7 @@ import allure
 from time import sleep
 from public.pages import auth_project_page
 from public.common import log
+from  config import globalparam
 
 
 class PojectAction(object):
@@ -19,14 +20,14 @@ class PojectAction(object):
         self.log = log.Log()
 
     def create_project(self, tenantname, projectname, projectdesc):
+        sleep(globalparam.small)
         with allure.step("创建项目"):
             allure.attach("运营部门名称：%s" % tenantname)
             allure.attach("项目名称：%s" % projectname)
             allure.attach("项目描述：%s" % projectdesc)
         self.propg.open_authproject()
-        self.dr.wait(10)
         self.propg.click_new_create_buttun()
-        sleep(1)
+        sleep(globalparam.tiny)
         self.propg.click_select_tenant()
         self.propg.input_and_select_tenant(tenantname)
         self.propg.click_select_zzjg()
@@ -39,13 +40,12 @@ class PojectAction(object):
         with allure.step("删除项目"):
             allure.attach("项目名称：%s" % projectname)
         self.propg.open_authproject()
-        self.dr.wait(10)
         self.propg.input_and_search_project(projectname)
-        sleep(1)
+        sleep(globalparam.small)
         self.propg.click_project_more_button()
-        sleep(0.5)
+        sleep(globalparam.tiny)
         self.propg.click_project_delete_button()
-        sleep(0.5)
+        sleep(globalparam.tiny)
         self.propg.click_project_delete_success_button()
 
     def assign_admin_user_for_project(self,projectname,username):

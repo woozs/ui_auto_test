@@ -20,7 +20,7 @@ class TestDeleteUser():
     """删除运营部门下的用户测试"""
 
     @allure.story("删除运营部门下的用户")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_delete_tenant_user(self,login_domain):
         dr = login_domain
         data1s = datainfo.get_xls_to_dict("user.xlsx", "authuser")["创建运营部门用户"]

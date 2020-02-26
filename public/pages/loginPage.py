@@ -34,8 +34,8 @@ class LoginPage(basepage.Page):
 
     def click_loginbutton(self):
         '''
-        点击登录按钮
+        单击登录按钮
         :return:
         '''''
-        self.log.debug("点击登录按钮")
+        self.log.debug("单击登录按钮")
         self.dr.click("xpath -> //button[contains(.,'登录')]")

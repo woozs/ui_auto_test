@@ -17,7 +17,7 @@ from public.appmodel.loginaction import Login
 class TestTenantDelete():
     """删除运营部门测试"""
     @allure.story("删除运营部门")
-    @pytest.mark.flaky(reruns=3)
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_delete_tenant(self,login_admin):
         dr = login_admin
         t_data = datainfo.get_xls_to_dict("tenantdata.xlsx", "Sheet1")["创建运营部门"]
@@ -32,7 +32,6 @@ class TestTenantDelete():
         # 搜索运营部门
         tpg.input_secrch_tenant(t_data["tenantname"])
         time.sleep(2)
-        dr.wait(5)
         add_image(dr,"删除运营部门")
         flag = dr.element_exist("id->card")
         assert flag is False

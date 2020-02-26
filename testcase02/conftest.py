@@ -31,7 +31,6 @@ def driver(request):
     log.info("打开浏览器")
     driver = pyselenium.PySelenium(globalparam.browser)
     driver.max_window()  # 最大化
-
     def end():
         log.info("用例全部执行完毕，关闭浏览器")
         time.sleep(globalparam.small)

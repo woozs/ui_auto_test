@@ -32,3 +32,12 @@ html_report_path = os.path.join(prj_path, 'report', 'html')
 
 # cookie_path
 cookie_path = os.path.join(prj_path, 'data', 'cookie_data')
+
+#等待时间
+tiny = 0.5
+small= 1
+middle = 2
+long = 5
+
+#c重试次数
+RENUM = 0
