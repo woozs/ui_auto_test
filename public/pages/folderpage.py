@@ -334,3 +334,63 @@ class OperationSystemPage(FolderPgae):
         self.dr.click("xpath->//button[contains(.,'新建')]")
     #
     # @allure.step("")
+    def click_vdc_box(self):
+        self.log.debug("单机vdc输入框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[2]/div/div/div/span/span[2]/span")
+
+    def select_vdc(self,value):
+        self.log.debug("选择vdc")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[4]",value)
+
+    def select_vpool(self,value):
+        self.log.debug("选择vpool")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[5]",value)
+
+    def click_vpool_box(self):
+        self.log.debug("单机vpool输入框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[3]/div/div/div/span/span[2]/span")
+
+    def click_image_type_box(self):
+        self.log.debug("单击模板类型输入框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[4]/div/div/div/span/span[2]/span")
+
+    def select_image_type(self,value):
+        self.log.debug("选择镜像类型")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[6]",value)
+    
+    def click_os_type(self):
+        self.log.debug("单击操作系统类型选择框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[5]/div/div/div/span/span[2]/span")
+    
+    def click_os_box(self):
+        self.log.debug("单击操作系统选择框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[6]/div/div/div/span/span[2]/span")
+    
+    def click_template_box(self):
+        self.log.debug("单击模板选择框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[7]/div/div/div/span/span[2]/span")
+
+    def click_iso_box(self):
+        self.log.debug("单击iso选择框")
+        self.dr.click("xpath->//div[@id='opeSystemModal']/div[2]/form/div/div/div[7]/div/div/div/span/span[2]/span")
+
+    
+    def select_os_type(self,value):
+        self.log.debug("操作系统类型")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[7]",value)
+
+    def select_os(self,value):
+        self.log.debug("选择镜像类型")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[8]",value)
+
+    def select_template(self,value):
+        self.log.debug("选择模板")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[9]",value)
+
+    def select_iso(self,value):
+        self.log.debug("选择ISO")
+        self.dr.type_and_enter("xpath->(//input[@type='search'])[9]",value)
+
+    def click_save_button(self):
+        self.log.debug("单击保存按钮")
+        self.dr.click("xpath->//div[19]/div/div[3]/button")

@@ -12,7 +12,9 @@ from public.pages import vdcPage
 from public.common import log
 
 
-class VdcACction(object):
+class VdcACction(
+
+):
     def __init__(self, driver):
         self.dr = driver
         self.vdcpage = vdcPage.VdcPage(self.dr)

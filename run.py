@@ -14,7 +14,6 @@ from public.common import log
 from public.common import shell
 from public.common import initializeEnv
 from config import globalparam
-from pyvirtualdisplay import Display
 
 
 failureException = AssertionError

@@ -19,6 +19,7 @@ class FolderAction(object):
         self.pdclasspage = folderpage.ProdCategPage(self.dr)
         self.pdmanagepage = folderpage.ProductManagePage(self.dr)
         self.spmanage = folderpage.SpecificationPage(self.dr)
+        self.ospage = folderpage.OperationSystemPage(self.dr)
 
 
 class ProdCategAction(FolderAction):
@@ -221,6 +222,44 @@ class SpecificationAction(FolderAction):
         except Exception as e:
             self.log.error("查询失败：%s,异常错误"%e)
 
+class OSAction(FolderAction):
+    def  create_os(self,vdc,vpool,imagetype,ostype,imagename):
+        try:
+            self.ospage.open_pv_managevolume_page()
+            self.ospage.click_new_create_button()
+            self.ospage.click_vdc_box()
+            self.ospage.select_vdc(vdc)
+            self.ospage.click_vpool_box()
+            self.ospage.select_vpool(vpool)
+            if imagetype == "模板":
+                self.ospage.click_image_type_box()
+                self.ospage.select_image_type("模板")
+                self.ospage.click_os_type()
+                self.ospage.select_os_type(ostype)
+                self.ospage.click_template_box()
+                self.ospage.select_template(imagename)
+            elif imagetype == "ISO":
+                self.ospage.click_image_type_box()
+                self.ospage.select_image_type("ISO")
+                self.ospage.click_os_type()
+                self.ospage.select_os_type(ostype)
+                self.ospage.click_iso_box()
+                self.ospage.select_iso(imagename)
+            elif imagetype == "自安装":
+                self.ospage.click_image_type_box()
+                self.ospage.select_image_type("ISO")
+                self.ospage.click_os_type()
+                self.ospage.select_os_type(ostype)
+            else:
+                self.log.error("imagetype is not in ‘模板’ iso 自安装")
+            self.ospage.click_save_button()
+        except  Exception as e:
+            self.log.error("创建操作系统失败:%s"%e)
+
+    def search_os(self):
+        self.ospage.open_pv_managevolume_page()
+        self
+
 
 
 if __name__ == '__main__':
@@ -233,11 +272,11 @@ if __name__ == '__main__':
     login = Login(dr).login("hubei01", "1qaz!QAZ")
     #
     sleep(3)
-    product =SpecificationAction(dr)
+    product =OSAction(dr)
     # # product.create_product("云主机","Openstack L","云主机","云主机测试","12","测试")
     # product.product_offline("云主机测试")
     # product.create_specification(productname="云主机",spname="云主机规格test",sptype=3,sptag="测试",spdes="自动化测试",vpool="湖北")
-    print(product.search_sp(spname="云主机规格test"))
+    print(product.create_os())
     sleep(2)
     # product.create_product_class("123","1","234")
     dr.quit()
